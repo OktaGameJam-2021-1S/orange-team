@@ -15,14 +15,14 @@ public interface IPlayer
 public interface IAlive
 {
     Transform Transform { get; }
-    EntityData Data { get; }
+    UnitData Data { get; }
 
 
     void TakeDamage(IAlive owner, int damage);
 }
 
 [Serializable]
-public class EntityData
+public class UnitData
 {
     public int MaxLife;
     public int CurrentLife;

@@ -10,8 +10,7 @@ public class DestroyOnEnter : MonoBehaviour
     {
         if (ObjectToSpawn)
         {
-            var obj = Instantiate(ObjectToSpawn);
-            obj.transform.position = transform.position;
+            var newGO = SimpleObjectPooling.Instance.Instantiate(ObjectToSpawn, transform.position);
         }
     }
 
@@ -19,6 +18,6 @@ public class DestroyOnEnter : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         Hit();
-        Destroy(other.gameObject);
+        SimpleObjectPooling.Instance.Destroy(other.gameObject);
     }
 }

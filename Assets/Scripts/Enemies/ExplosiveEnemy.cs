@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using UnityEngine;
 
 
-public class ExplosiveEnemy : BaseAlive
+public class ExplosiveEnemy : BaseUnit
 {
     public GameObject ObjectToSpawn;
 
@@ -14,8 +14,7 @@ public class ExplosiveEnemy : BaseAlive
     {
         if (ObjectToSpawn)
         {
-            var obj = Instantiate(ObjectToSpawn);
-            obj.transform.position = transform.position;
+            var newGO = SimpleObjectPooling.Instance.Instantiate(ObjectToSpawn, transform.position);
         }
     }
     private void OnTriggerEnter(Collider other)
@@ -24,7 +23,7 @@ public class ExplosiveEnemy : BaseAlive
         if(alive != null)
         {
             alive.TakeDamage(this, this.Data.AttackDamage);
-            Destroy(gameObject);
+            SimpleObjectPooling.Instance.Destroy(gameObject);
             Hit();
         }
     }
