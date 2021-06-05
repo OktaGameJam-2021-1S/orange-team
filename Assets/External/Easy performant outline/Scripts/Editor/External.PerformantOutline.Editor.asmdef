@@ -1,0 +1,17 @@
+{
+    "name": "External.PerformantOutline.Editor",
+    "references": [
+        "GUID:2ad242e563039b943b94f8e58d6c3e0d",
+        "GUID:15fc0a57446b3144c949da3e2b9737a9"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": []
+}
