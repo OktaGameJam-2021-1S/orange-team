@@ -33,6 +33,7 @@ public class PlayerControll : BaseUnit
             return Physics.Raycast(transform.position, Vector3.down, 0.6f, groundMask);
         }
     }
+
     protected override void Start()
     {
         base.Start();
@@ -49,7 +50,6 @@ public class PlayerControll : BaseUnit
             MovePlayer();
             Jump();
         }
-        Debug.Log(IsGrounded);
     }
 
     private void RotatePlayer()
