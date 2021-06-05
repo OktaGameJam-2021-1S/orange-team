@@ -23,6 +23,7 @@ public class Spawner : MonoBehaviour
     private void Reset()
     {
         SpawnParent = transform;
+        SpawnPosition = new Transform[] { transform };
     }
     void Start()
     {
@@ -59,8 +60,7 @@ public class Spawner : MonoBehaviour
     {
         var prefab = SpawnPrefabs[Random.Range(0, SpawnPrefabs.Length)];
         var position = SpawnPosition[Random.Range(0, SpawnPosition.Length)];
-        var newGO = Instantiate(prefab, SpawnParent);
-        newGO.transform.position = position.position;
+        var newGO = SimpleObjectPooling.Instance.Instantiate(prefab, position.position);
         newGO.transform.rotation = position.rotation;
         newGO.SetActive(true);
         SpawnCount++;

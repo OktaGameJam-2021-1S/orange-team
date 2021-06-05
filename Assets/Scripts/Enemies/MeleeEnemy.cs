@@ -46,7 +46,6 @@ public class MeleeEnemy : BaseUnit, IEnemy
                 break;
         }
         CurrentState = state;
-        Debug.Log(state);
     }
 
     private void Update()
@@ -105,7 +104,7 @@ public class MeleeEnemy : BaseUnit, IEnemy
     {
         if (CurrentState == State.Seek)
         {
-            Body.position += Vector3.Normalize(Target.Transform.position - transform.position) * Speed * Time.deltaTime;
+            Body.position += Vector3.Normalize(Target.Transform.position - transform.position) * Speed * Time.fixedDeltaTime;
             if (IsInTargetRange())
             {
                 SetState(State.Attack);
