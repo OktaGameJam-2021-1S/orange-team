@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerControll : BaseUnit
+public class PlayerControll : MonoBehaviour
 {
     private Rigidbody _rb;
     [Header("Atributes")]
@@ -35,9 +35,8 @@ public class PlayerControll : BaseUnit
     }
     
     // Start is called before the first frame update
-    protected override void Start()
+    void Start()
     {
-        base.Start();
         _rb = GetComponent <Rigidbody>();
         _Rotation = transform.rotation.eulerAngles;
     }

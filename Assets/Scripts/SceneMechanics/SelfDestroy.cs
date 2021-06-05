@@ -9,6 +9,6 @@ public class SelfDestroy : MonoBehaviour
     IEnumerator Start()
     {
         yield return new WaitForSeconds(WaitTime);
-        SimpleObjectPooling.Instance.Destroy(gameObject);
+        Destroy(gameObject);
     }
 }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class MeleeEnemy : BaseUnit, IEnemy
+public class MeleeEnemy : BaseAlive, IEnemy
 {
     public enum State
     {
@@ -46,6 +46,7 @@ public class MeleeEnemy : BaseUnit, IEnemy
                 break;
         }
         CurrentState = state;
+        Debug.Log(state);
     }
 
     private void Update()
@@ -104,7 +105,7 @@ public class MeleeEnemy : BaseUnit, IEnemy
     {
         if (CurrentState == State.Seek)
         {
-            Body.position += Vector3.Normalize(Target.Transform.position - transform.position) * Speed * Time.fixedDeltaTime;
+            Body.position += Vector3.Normalize(Target.Transform.position - transform.position) * Speed * Time.deltaTime;
             if (IsInTargetRange())
             {
                 SetState(State.Attack);

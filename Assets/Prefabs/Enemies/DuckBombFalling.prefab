@@ -147,5 +147,5 @@ MonoBehaviour:
     AttackTime: 0
     AttackDamage: 10
   Healthbar: {fileID: 0}
-  ObjectToSpawn: {fileID: 2060212803351811498, guid: 38b99d63cdad9994b89d14c10a8783ce,
+  ObjectToSpawn: {fileID: 8695849450493659303, guid: 859ae6036427ef940b890dae6943e9de,
     type: 3}
