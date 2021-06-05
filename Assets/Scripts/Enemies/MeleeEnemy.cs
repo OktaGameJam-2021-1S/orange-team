@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class MeleeEnemy : BaseAlive, IEnemy
+public class MeleeEnemy : BaseUnit, IEnemy
 {
     public enum State
     {
