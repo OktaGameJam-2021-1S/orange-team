@@ -29,6 +29,7 @@ public class DungeonCreator : MonoBehaviour
         if (RandomSeed <= 0)
             RandomSeed = DateTime.Now.Millisecond;
         RoomRandom = new System.Random(RandomSeed);
+        AvailableRooms.Add(StartRoom);
         RoomsToProcess.Enqueue(StartRoom);
         yield return StartCoroutine(CreateRoom());
     }
@@ -40,19 +41,27 @@ public class DungeonCreator : MonoBehaviour
             for (int i = 0; i < room.Doors.Length; i++)
             {
                 var roomToGo = room.Doors[i].Direction;
-                room.Doors[i].SetRoomToGo(i);
+                int roomToGoIdx = AvailableRooms.Count;
+                room.Doors[i].SetRoomToGo(roomToGoIdx);
                 var templates = RoomsTemplate.Where(p => p.Direction == roomToGo).FirstOrDefault();
                 int roomIdx = RoomRandom.Next(0, templates.Rooms.Length);
                 var roomToCreate = templates.Rooms[roomIdx];
                 var newRoom = Instantiate(roomToCreate);
                 newRoom.transform.position = room.transform.position + GetOffset(roomToGo);
-                newRoom.RoomIndex = AvailableRooms.Count;
+                newRoom.RoomIndex = roomToGoIdx;
                 newRoom.PreviousRoomIndex = room.RoomIndex;
                 AvailableRooms.Add(newRoom);
+                string grid = newRoom.transform.position.x + "-" + newRoom.transform.position.y + "-" + newRoom.transform.position.z;
+
+                Debug.Log($"Room created grid[{grid}]");
                 if (newRoom.Doors.Length > 0)
                     RoomsToProcess.Enqueue(newRoom);
-                yield return null;
+                //yield return null;
             }
+        }
+        for (int i = 1; i < AvailableRooms.Count; i++)
+        {
+            AvailableRooms[i].gameObject.SetActive(false);
         }
         yield return null;
     }

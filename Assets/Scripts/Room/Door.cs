@@ -28,7 +28,7 @@ public class Door : MonoBehaviour
     {
         if(other.tag == k.TagPlayer)
         {
-
+            RoomTeleporter.Instance.Teleport(other.GetComponent<IEntity>(), RoomToGo);
         }
     }
 }
