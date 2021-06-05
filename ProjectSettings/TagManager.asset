@@ -5,6 +5,12 @@ TagManager:
   serializedVersion: 2
   tags:
   - Enemy
+  - FxTemporaire
+  - Missile
+  - Room
+  - Dungeon
+  - CheckCollider
+  - Lines
   layers:
   - Default
   - TransparentFX

@@ -497,10 +497,10 @@ namespace CartoonFX
 #endif
 			// Detect if world position needs to be passed to the shader
 			particleRenderer = this.GetComponent<ParticleSystemRenderer>();
-			if (particleRenderer.sharedMaterial != null && particleRenderer.sharedMaterial.IsKeywordEnabled("_CFXR_LIGHTING_WPOS_OFFSET"))
-			{ 
-				materialPropertyBlock = new MaterialPropertyBlock();
-			}
+			//if (particleRenderer.sharedMaterial != null && particleRenderer.sharedMaterial.IsKeywordEnabled("_CFXR_LIGHTING_WPOS_OFFSET"))
+			//{ 
+			//	materialPropertyBlock = new MaterialPropertyBlock();
+			//}
 		}
 #endif
 
