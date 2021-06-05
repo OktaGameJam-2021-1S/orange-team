@@ -23,6 +23,7 @@ public class Spawner : MonoBehaviour
     private void Reset()
     {
         SpawnParent = transform;
+        SpawnPosition = new Transform[] { transform };
     }
     void Start()
     {

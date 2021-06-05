@@ -29,4 +29,5 @@ public class UnitData
     public float AttackDistance;
     public float AttackTime;
     public int AttackDamage;
+    public float Speed;
 }
