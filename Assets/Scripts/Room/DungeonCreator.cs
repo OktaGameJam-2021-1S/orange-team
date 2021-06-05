@@ -15,6 +15,7 @@ public class DungeonCreator : MonoBehaviour
     public List<RoomTemplate> RoomsTemplate;
     public BaseRoom StartRoom;
     public List<BaseRoom> AvailableRooms = new List<BaseRoom>();
+    public Dictionary<string, BaseRoom> RoomGrid = new Dictionary<string, BaseRoom>();
     public int MaxRooms = 10;
     public int RoomSize = 10;
     public int RandomSeed;
@@ -29,6 +30,8 @@ public class DungeonCreator : MonoBehaviour
         if (RandomSeed <= 0)
             RandomSeed = DateTime.Now.Millisecond;
         RoomRandom = new System.Random(RandomSeed);
+        string grid = StartRoom.transform.position.x + "-" + StartRoom.transform.position.y + "-" + StartRoom.transform.position.z;
+        RoomGrid.Add(grid, StartRoom);
         AvailableRooms.Add(StartRoom);
         RoomsToProcess.Enqueue(StartRoom);
         yield return StartCoroutine(CreateRoom());
@@ -41,27 +44,39 @@ public class DungeonCreator : MonoBehaviour
             for (int i = 0; i < room.Doors.Length; i++)
             {
                 var roomToGo = room.Doors[i].Direction;
-                int roomToGoIdx = AvailableRooms.Count;
-                room.Doors[i].SetRoomToGo(roomToGoIdx);
-                var templates = RoomsTemplate.Where(p => p.Direction == roomToGo).FirstOrDefault();
-                int roomIdx = RoomRandom.Next(0, templates.Rooms.Length);
-                var roomToCreate = templates.Rooms[roomIdx];
-                var newRoom = Instantiate(roomToCreate);
-                newRoom.transform.position = room.transform.position + GetOffset(roomToGo);
-                newRoom.RoomIndex = roomToGoIdx;
-                newRoom.PreviousRoomIndex = room.RoomIndex;
-                AvailableRooms.Add(newRoom);
-                string grid = newRoom.transform.position.x + "-" + newRoom.transform.position.y + "-" + newRoom.transform.position.z;
+                var roomToGoPosition = room.transform.position + GetOffset(roomToGo);
+                string grid = roomToGoPosition.x + "-" + roomToGoPosition.y + "-" + roomToGoPosition.z;
+                Debug.Log($"preparing room grid[{grid}]");
+                if (RoomGrid.ContainsKey(grid))
+                {
+                    var newRoom = RoomGrid[grid];
+                    room.Doors[i].SetRoomToGo(newRoom.RoomIndex);
+                }
+                else
+                {
+                    var templates = RoomsTemplate.Where(p => p.Direction == roomToGo).FirstOrDefault();
+                    Debug.Log($"will create Direction[{templates.Direction}]");
+                    int roomIdx = RoomRandom.Next(0, templates.Rooms.Length);
+                    var roomToCreate = templates.Rooms[roomIdx];
+                    int roomToGoIdx = AvailableRooms.Count;
+                    var newRoom = Instantiate(roomToCreate);
+                    room.Doors[i].SetRoomToGo(roomToGoIdx);
+                    newRoom.transform.position = roomToGoPosition;
+                    newRoom.RoomIndex = roomToGoIdx;
+                    newRoom.PreviousRoomIndex = room.RoomIndex;
+                    AvailableRooms.Add(newRoom);
+                    RoomGrid.Add(grid, newRoom);
+                    Debug.Log($"Room created grid[{grid}]");
+                    if (newRoom.Doors.Length > 0)
+                        RoomsToProcess.Enqueue(newRoom);
+                }
 
-                Debug.Log($"Room created grid[{grid}]");
-                if (newRoom.Doors.Length > 0)
-                    RoomsToProcess.Enqueue(newRoom);
                 //yield return null;
             }
         }
         for (int i = 1; i < AvailableRooms.Count; i++)
         {
-            AvailableRooms[i].gameObject.SetActive(false);
+            //AvailableRooms[i].gameObject.SetActive(false);
         }
         yield return null;
     }
@@ -88,9 +103,21 @@ public class DungeonCreator : MonoBehaviour
 
     private void OnDrawGizmos()
     {
+        if (!Application.isPlaying)
+            return;
+
         Gizmos.color = Color.green;
         for (int i = 1; i < AvailableRooms.Count; i++)
         {
+            //for (int j = 0; j < AvailableRooms[i].Doors.Length; j++)
+            //{
+            //    var door = AvailableRooms[i].Doors[j];
+            //    Gizmos.DrawLine(
+            //         door.transform.position,
+            //        AvailableRooms[door.RoomToGo].Entrance.transform.position
+            //        );
+            //    //Gizmos.DrawSphere(door.transform.position, 1.1f);
+            //}
             Gizmos.DrawLine(
                 AvailableRooms[AvailableRooms[i].RoomIndex].Entrance.transform.position, 
                 AvailableRooms[AvailableRooms[i].PreviousRoomIndex].Entrance.transform.position

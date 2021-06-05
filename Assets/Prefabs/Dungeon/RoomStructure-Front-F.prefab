@@ -15,7 +15,7 @@ PrefabInstance:
     - target: {fileID: 2496293119252034096, guid: 7f1efcbc728165046a4aeaa54a3738c1,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3718572630804007992, guid: 7f1efcbc728165046a4aeaa54a3738c1,
         type: 3}
@@ -80,12 +80,12 @@ PrefabInstance:
     - target: {fileID: 4955151177565751959, guid: 7f1efcbc728165046a4aeaa54a3738c1,
         type: 3}
       propertyPath: m_Name
-      value: RoomStructure-Front-3
+      value: RoomStructure-Front-F
       objectReference: {fileID: 0}
     - target: {fileID: 6044142416463878797, guid: 7f1efcbc728165046a4aeaa54a3738c1,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.5
+      value: -0.5
       objectReference: {fileID: 0}
     - target: {fileID: 6044142416463878797, guid: 7f1efcbc728165046a4aeaa54a3738c1,
         type: 3}
@@ -105,7 +105,7 @@ PrefabInstance:
     - target: {fileID: 9064326883957106394, guid: 7f1efcbc728165046a4aeaa54a3738c1,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7f1efcbc728165046a4aeaa54a3738c1, type: 3}

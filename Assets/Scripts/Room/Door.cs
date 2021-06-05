@@ -17,18 +17,33 @@ public enum DoorDirection
 public class Door : MonoBehaviour
 {
     public DoorDirection Direction;
-    private int RoomToGo;
-
+    public int RoomToGo;
+    
     public void SetRoomToGo(int roomToGo)
     {
         RoomToGo = roomToGo;
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
-        if(other.tag == k.TagPlayer)
+        if (other.tag == k.TagPlayer)
         {
-            RoomTeleporter.Instance.Teleport(other.GetComponent<IEntity>(), RoomToGo);
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                RoomTeleporter.Instance.Teleport(other.GetComponent<IEntity>(), RoomToGo);
+            }
         }
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        if (!Application.isPlaying)
+            return;
+        Gizmos.color = Color.green;
+        var dungeon = GameObject.FindObjectOfType<DungeonCreator>();
+        Gizmos.DrawLine(
+                     transform.position,
+                    dungeon.AvailableRooms[RoomToGo].Entrance.transform.position
+                    );
     }
 }

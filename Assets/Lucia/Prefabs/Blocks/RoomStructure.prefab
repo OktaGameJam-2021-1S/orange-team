@@ -109,6 +109,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Direction: 5
+  RoomToGo: 0
 --- !u!1 &2496293119252034096
 GameObject:
   m_ObjectHideFlags: 0
@@ -137,8 +138,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2496293119252034096}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.5, y: 1, z: -4.5}
-  m_LocalScale: {x: 1, y: 2, z: 1}
+  m_LocalPosition: {x: -0.5, y: 1, z: -4.94}
+  m_LocalScale: {x: 1, y: 2, z: 0.1}
   m_Children: []
   m_Father: {fileID: 1611903392139943913}
   m_RootOrder: 1
@@ -218,6 +219,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Direction: 3
+  RoomToGo: 0
 --- !u!1 &2513442665398806686
 GameObject:
   m_ObjectHideFlags: 0
@@ -341,8 +343,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3718572630804007992}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.5, y: 1, z: 4.5}
-  m_LocalScale: {x: 1, y: 2, z: 1}
+  m_LocalPosition: {x: 0.5, y: 1, z: 4.97}
+  m_LocalScale: {x: 1, y: 2, z: 0.1}
   m_Children: []
   m_Father: {fileID: 1611903392139943913}
   m_RootOrder: 0
@@ -422,6 +424,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Direction: 2
+  RoomToGo: 0
 --- !u!1 &4955151177565751959
 GameObject:
   m_ObjectHideFlags: 0
@@ -1016,8 +1019,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6183120785020879184}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.5, y: 1, z: 0}
-  m_LocalScale: {x: 1, y: 2, z: 1}
+  m_LocalPosition: {x: -4.93, y: 1, z: 0}
+  m_LocalScale: {x: 0.1, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 1611903392139943913}
   m_RootOrder: 3
@@ -1097,6 +1100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Direction: 1
+  RoomToGo: 0
 --- !u!1 &6528277389575428304
 GameObject:
   m_ObjectHideFlags: 0
@@ -1125,8 +1129,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6528277389575428304}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.5, y: 1, z: 0}
-  m_LocalScale: {x: 1, y: 2, z: 1}
+  m_LocalPosition: {x: 4.9, y: 1, z: 0}
+  m_LocalScale: {x: 0.1, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 1611903392139943913}
   m_RootOrder: 2
@@ -1206,6 +1210,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Direction: 0
+  RoomToGo: 0
 --- !u!1 &8386172730856011921
 GameObject:
   m_ObjectHideFlags: 0
@@ -1396,3 +1401,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Direction: 5
+  RoomToGo: 0
