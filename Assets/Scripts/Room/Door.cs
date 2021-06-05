@@ -23,4 +23,12 @@ public class Door : MonoBehaviour
     {
         RoomToGo = roomToGo;
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.tag == k.TagPlayer)
+        {
+
+        }
+    }
 }

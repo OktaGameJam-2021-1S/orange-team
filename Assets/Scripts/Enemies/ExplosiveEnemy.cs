@@ -14,8 +14,7 @@ public class ExplosiveEnemy : BaseUnit
     {
         if (ObjectToSpawn)
         {
-            var obj = Instantiate(ObjectToSpawn);
-            obj.transform.position = transform.position;
+            var newGO = SimpleObjectPooling.Instance.Instantiate(ObjectToSpawn, transform.position);
         }
     }
     private void OnTriggerEnter(Collider other)
@@ -24,7 +23,7 @@ public class ExplosiveEnemy : BaseUnit
         if(alive != null)
         {
             alive.TakeDamage(this, this.Data.AttackDamage);
-            Destroy(gameObject);
+            SimpleObjectPooling.Instance.Destroy(gameObject);
             Hit();
         }
     }

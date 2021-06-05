@@ -10,16 +10,26 @@ public class BaseUnit : MonoBehaviour, IAlive
 {
     [SerializeField] protected EntityData EntityData;
     [SerializeField] protected Transform Healthbar;
-
-
+    protected UnitCenter UnitCenter;
     public EntityData Data => EntityData;
     public Transform Transform => transform;
+
     protected virtual void Start()
     {
+        UnitCenter = FindObjectOfType<UnitCenter>();
         EntityData.CurrentLife = EntityData.MaxLife;
         SetHealth(EntityData.MaxLife);
+        UnitCenter.Register(this);
     }
-
+    private void OnDestroy()
+    {
+        UnitCenter.Unregister(this);
+    }
+    private void OnDisable()
+    {
+        // in case we use object pooling
+        UnitCenter.Unregister(this);
+    }
     protected void SetHealth(int health)
     {
         EntityData.CurrentLife = health;
