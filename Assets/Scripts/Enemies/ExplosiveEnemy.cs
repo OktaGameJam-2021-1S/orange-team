@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using UnityEngine;
 
 
-public class ExplosiveEnemy : BaseAlive
+public class ExplosiveEnemy : BaseUnit
 {
     public GameObject ObjectToSpawn;
 

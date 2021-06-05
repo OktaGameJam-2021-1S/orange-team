@@ -2239,7 +2239,7 @@ MonoBehaviour:
     - {fileID: 3992775817890467443, guid: 2662c14f999da59458f2ff25e13a25ca, type: 3}
   StartRoom: {fileID: 997442862}
   AvailableRooms: []
-  MaxRooms: 20
+  MaxRooms: 10
   RoomSize: 10
   RandomSeed: 0
 --- !u!1 &1400523189
@@ -2743,23 +2743,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c43ab9611c697ea4db8b4896fce5de9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EntityData:
-    MaxLife: 100
-    CurrentLife: 100
-    AttackDistance: 2
-    AttackTime: 1
-    AttackDamage: 10
-    Speed: 0
-  Healthbar: {fileID: 1228187950}
-  _Damage: 0
-  _JumpForce: 10
-  _Acceleration: 1
-  _MaxVelocity: 1
-  _BreakForce: 0
-  _RotateVelocity: 1
-  groundMask:
-    serializedVersion: 2
-    m_Bits: 256
 --- !u!136 &1744329788
 CapsuleCollider:
   m_ObjectHideFlags: 0

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using UnityEngine;
 
 
-public class BaseAlive : MonoBehaviour, IAlive
+public class BaseUnit : MonoBehaviour, IAlive
 {
     [SerializeField] protected EntityData EntityData;
     [SerializeField] protected Transform Healthbar;
