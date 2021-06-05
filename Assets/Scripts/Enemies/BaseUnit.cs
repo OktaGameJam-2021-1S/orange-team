@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using UnityEngine;
 
 
-public class BaseUnit : MonoBehaviour, IAlive
+public class BaseUnit : MonoBehaviour, IEntity
 {
     [SerializeField] protected EntityData EntityData;
     [SerializeField] protected Transform Healthbar;
@@ -17,18 +17,22 @@ public class BaseUnit : MonoBehaviour, IAlive
     protected virtual void Start()
     {
         UnitCenter = FindObjectOfType<UnitCenter>();
+        if(UnitCenter)
+            UnitCenter.Register(this);
         EntityData.CurrentLife = EntityData.MaxLife;
         SetHealth(EntityData.MaxLife);
-        UnitCenter.Register(this);
+        
     }
     private void OnDestroy()
     {
-        UnitCenter.Unregister(this);
+        if (UnitCenter)
+            UnitCenter.Unregister(this);
     }
     private void OnDisable()
     {
         // in case we use object pooling
-        UnitCenter.Unregister(this);
+        if (UnitCenter)
+            UnitCenter.Unregister(this);
     }
     protected void SetHealth(int health)
     {
@@ -40,7 +44,7 @@ public class BaseUnit : MonoBehaviour, IAlive
             Healthbar.transform.localScale = scale;
         }
     }
-    public void TakeDamage(IAlive owner, int damage)
+    public void TakeDamage(IEntity owner, int damage)
     {
         SetHealth(EntityData.CurrentLife - damage);
     }

@@ -19,7 +19,7 @@ public class ExplosiveEnemy : BaseUnit
     }
     private void OnTriggerEnter(Collider other)
     {
-        var alive = other.gameObject.GetComponent<IAlive>();
+        var alive = other.gameObject.GetComponent<IEntity>();
         if(alive != null)
         {
             alive.TakeDamage(this, this.Data.AttackDamage);
@@ -29,7 +29,7 @@ public class ExplosiveEnemy : BaseUnit
     }
     private void OnCollisionStay(Collision collision)
     {
-        var alive = collision.collider.gameObject.GetComponent<IAlive>();
+        var alive = collision.collider.gameObject.GetComponent<IEntity>();
         if (alive != null)
         {
             alive.TakeDamage(this, this.Data.AttackDamage);

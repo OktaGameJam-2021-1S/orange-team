@@ -12,13 +12,13 @@ public interface IPlayer
     
 }
 
-public interface IAlive
+public interface IEntity
 {
     Transform Transform { get; }
     EntityData Data { get; }
 
 
-    void TakeDamage(IAlive owner, int damage);
+    void TakeDamage(IEntity owner, int damage);
 }
 
 [Serializable]

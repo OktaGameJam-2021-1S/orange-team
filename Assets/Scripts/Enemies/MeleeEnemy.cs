@@ -20,7 +20,7 @@ public class MeleeEnemy : BaseUnit, IEnemy
     [SerializeField] private Transform ShootPosition;
 
     State CurrentState;
-    IAlive Target;
+    IEntity Target;
     float TimeToAttack;
     Rigidbody Body;
 
@@ -66,7 +66,7 @@ public class MeleeEnemy : BaseUnit, IEnemy
                     }
                     else
                     {
-                        ((IAlive)Target).TakeDamage(this, Data.AttackDamage);
+                        ((IEntity)Target).TakeDamage(this, Data.AttackDamage);
                     }
                     TimeToAttack = Data.AttackTime;
                 }
@@ -84,7 +84,7 @@ public class MeleeEnemy : BaseUnit, IEnemy
                         var player = item.GetComponent<IPlayer>();
                         if (player != null)
                         {
-                            Target = (IAlive)player;
+                            Target = (IEntity)player;
                             SetState(State.Seek);
                             break;
                         }
