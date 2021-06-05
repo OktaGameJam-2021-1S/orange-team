@@ -1351,7 +1351,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1017883578}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &690649495
 MonoBehaviour:
@@ -1365,7 +1365,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d15860e637abfe45a2db30773a1d739, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DungeonData: {fileID: 1331451049}
 --- !u!1 &711642440
 GameObject:
   m_ObjectHideFlags: 0
@@ -2307,8 +2306,9 @@ Transform:
   m_Children:
   - {fileID: 645746617}
   - {fileID: 1957440959}
-  - {fileID: 1331451048}
   - {fileID: 690649494}
+  - {fileID: 1331451048}
+  - {fileID: 1229897433}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2595,6 +2595,58 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1228187949}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1229897432
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1229897433}
+  - component: {fileID: 1229897434}
+  m_Layer: 0
+  m_Name: DungeonCreation - front
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1229897433
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1229897432}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1017883578}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1229897434
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1229897432}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e075409d204f9fc40a428ac7e3ae4828, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RoomsTemplate:
+  - Direction: 2
+    Rooms:
+    - {fileID: 3992775817890467443, guid: 010215508700d1a4888d786af488ba04, type: 3}
+  StartRoom: {fileID: 997442862}
+  AvailableRooms: []
+  MaxRooms: 10
+  RoomSize: 10
+  RandomSeed: 0
 --- !u!1 &1331451047
 GameObject:
   m_ObjectHideFlags: 0
@@ -2624,7 +2676,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1017883578}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1331451049
 MonoBehaviour:
