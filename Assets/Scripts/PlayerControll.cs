@@ -44,9 +44,12 @@ public class PlayerControll : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        RotatePlayer();
-        MovePlayer();
-        Jump();
+        if (IsGrounded)
+        {
+            RotatePlayer();
+            MovePlayer();
+            Jump();
+        }
         Debug.Log(IsGrounded);
     }
 
@@ -58,6 +61,7 @@ public class PlayerControll : MonoBehaviour
 
     private void MovePlayer()
     {
+        
         if (Input.GetAxis("Vertical") != 0)
         {
             _CurrentAcceleration = _Acceleration * Input.GetAxis("Vertical") * Time.deltaTime;
@@ -78,7 +82,7 @@ public class PlayerControll : MonoBehaviour
 
     private void Jump()
     {
-        if (Input.GetButton("Jump") && IsGrounded)
+        if (Input.GetButton("Jump"))
         {
             _rb.velocity = new Vector3(_rb.velocity.x, _JumpForce, _rb.velocity.z);
         }
