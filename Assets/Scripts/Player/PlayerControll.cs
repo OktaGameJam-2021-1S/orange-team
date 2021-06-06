@@ -79,7 +79,7 @@ public class PlayerControll : BaseUnit, IPlayer
     private void MovePlayer()
     {
         
-        if (Input.GetAxis("Vertical") != 0)
+        if (Input.GetAxis("Vertical") != 0 && _AtackDelayCount > _AtackDelay)
         {
             anim.SetBool("Walking",true);
             _CurrentAcceleration = _Acceleration * Input.GetAxis("Vertical") * Time.deltaTime;
@@ -114,6 +114,7 @@ public class PlayerControll : BaseUnit, IPlayer
         {
             if (Input.GetButtonDown("Fire1"))
             {
+                _rb.velocity = Vector3.zero;
                 anim.SetTrigger("Atack");
                 if (Physics.Raycast(weapon.position, weapon.forward, out hit, _AtackDistance))
                 {

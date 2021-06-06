@@ -223,7 +223,7 @@ MonoBehaviour:
   Healthbar: {fileID: 5431749908887885056}
   anim: {fileID: 494656832663961347}
   _Damage: 0
-  _AtackDelay: 0
+  _AtackDelay: 1
   _JumpForce: 5
   _Acceleration: 10
   _MaxVelocity: 20
@@ -232,7 +232,7 @@ MonoBehaviour:
   _Height: 0
   groundMask:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 385
   _AtackDistance: 2
   weapon: {fileID: 656053763}
 --- !u!54 &2328557842624850885
