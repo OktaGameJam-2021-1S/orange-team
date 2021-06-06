@@ -208,7 +208,7 @@ PrefabInstance:
     - target: {fileID: 5408650704177206470, guid: bf1d7f48ec2c8be4cbce278b0c7c866e,
         type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5408650704177206470, guid: bf1d7f48ec2c8be4cbce278b0c7c866e,
         type: 3}
@@ -7753,6 +7753,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: RoomStructure
+      objectReference: {fileID: 0}
+    - target: {fileID: 4955151178073006714, guid: 7f1efcbc728165046a4aeaa54a3738c1,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+    - target: {fileID: 4955151178152149583, guid: 7f1efcbc728165046a4aeaa54a3738c1,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4955151178155772239, guid: 7f1efcbc728165046a4aeaa54a3738c1,
         type: 3}
