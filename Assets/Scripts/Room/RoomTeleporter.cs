@@ -23,7 +23,7 @@ public class RoomTeleporter : Singleton<RoomTeleporter>
     IEnumerator COTeleport(IEntity player, int roomIndex)
     {
         Debug.Log("Teleporting to: " + roomIndex + " / " + DungeonData.AvailableRooms.Count);
-        player.Transform.gameObject.SetActive(false);
+        //player.Transform.gameObject.SetActive(false);
         yield return new WaitForSeconds(.2f);
 
         try
@@ -32,7 +32,21 @@ public class RoomTeleporter : Singleton<RoomTeleporter>
             var currentDungeon = DungeonData.AvailableRooms[nextDungeon.PreviousRoomIndex];
             nextDungeon.gameObject.SetActive(true);
             currentDungeon.gameObject.SetActive(false);
-            player.Transform.position = nextDungeon.Entrance.transform.position;
+
+            int nearest = 0;
+            float nearestDistance = Vector3.Distance(player.Transform.position, nextDungeon.Doors[0].transform.position);
+            for (int i = 1; i < nextDungeon.Doors.Length; i++)
+            {
+                float distance = Vector3.Distance(player.Transform.position, nextDungeon.Doors[i].transform.position);
+                if(distance < nearestDistance)
+                {
+                    nearestDistance = distance;
+                    nearest = i;
+                }
+            }
+            var pos = nextDungeon.Doors[nearest].transform.position;
+            pos = pos + Vector3.Normalize(pos - player.Transform.position) * 1f;
+            player.Transform.position = pos;
         }catch(Exception e)
         {
             Debug.LogError(e.Message);
@@ -41,6 +55,6 @@ public class RoomTeleporter : Singleton<RoomTeleporter>
         
 
         yield return new WaitForSeconds(.2f);
-        player.Transform.gameObject.SetActive(true);
+        //player.Transform.gameObject.SetActive(true);
     }
 }
