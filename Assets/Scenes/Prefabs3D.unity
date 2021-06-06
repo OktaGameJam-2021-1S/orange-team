@@ -20,11 +20,11 @@ RenderSettings:
   m_FogDensity: 0.01
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
+  m_AmbientSkyColor: {r: 0.1, g: 0.1, b: 0.1, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
-  m_AmbientMode: 0
+  m_AmbientMode: 4
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
   m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
   m_HaloStrength: 0.5
@@ -369,6 +369,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SuperDuck
       objectReference: {fileID: 0}
+    - target: {fileID: 1091985352775445210, guid: e93c8297cdd8fa640a24be1a8c99150d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1091985352775445221, guid: e93c8297cdd8fa640a24be1a8c99150d,
         type: 3}
       propertyPath: m_RootOrder
@@ -645,11 +650,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: DuckMeele
-      objectReference: {fileID: 0}
-    - target: {fileID: 6060781094230112013, guid: ec1cddd8f466b944da98a92002f74995,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ec1cddd8f466b944da98a92002f74995, type: 3}
