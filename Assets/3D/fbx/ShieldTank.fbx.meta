@@ -1,17 +1,12 @@
 fileFormatVersion: 2
-guid: 972c986b42b56fc43bc23552710be281
+guid: a8317bb92afac4e46bf8d542904c66a2
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable:
   - first:
-      74: -2684734047852194374
-    second: CannonRig|CannonAttack
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Metal
-    second: {fileID: 2100000, guid: 05f8790a37f7cc84b830be23ad1ccc49, type: 2}
+      74: -1133300089775574676
+    second: ShieldTank|ShieldAttack
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0
