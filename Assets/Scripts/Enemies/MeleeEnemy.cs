@@ -43,10 +43,22 @@ public class MeleeEnemy : BaseUnit, IEnemy
                 TimeToTakeDamageCounter = Data.AttackTime + TimeToTakeDamage;
                 break;
             case State.Find:
+                if (Animation != null)
+                {
+                    Animation.SetTrigger("Idle");
+                }
                 break;
             case State.Idle:
+                if (Animation != null)
+                {
+                    Animation.SetTrigger("Idle");
+                }
                 break;
             case State.Seek:
+                if (Animation != null)
+                {
+                    Animation.SetTrigger("Walk");
+                }
                 break;
         }
         CurrentState = state;
@@ -64,7 +76,6 @@ public class MeleeEnemy : BaseUnit, IEnemy
                 {
                     if (Animation != null)
                     {
-                        Animation.enabled = true;
                         Animation.SetTrigger("Attack");
                     }
                     TimeToAttackAnimation = Data.AttackTime;
@@ -132,6 +143,10 @@ public class MeleeEnemy : BaseUnit, IEnemy
             Body.position += Vector3.Normalize(Target.Transform.position - transform.position) * Data.Speed * Time.fixedDeltaTime;
             if (IsInTargetRange())
             {
+                if (Animation != null)
+                {
+                    Animation.SetTrigger("Idle");
+                }
                 SetState(State.Attack);
             }
         }
