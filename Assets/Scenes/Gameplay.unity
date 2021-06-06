@@ -507,7 +507,8 @@ MonoBehaviour:
   - Direction: 1
     RoomsGO: []
   - Direction: 2
-    RoomsGO: []
+    RoomsGO:
+    - {fileID: 5335868697174242728, guid: 79e8f5c9f4d3bed4c979e5a7ced1be6b, type: 3}
   - Direction: 5
     RoomsGO: []
   - Direction: 4

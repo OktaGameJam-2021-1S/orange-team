@@ -81,7 +81,8 @@ public class RoomTeleporter : Singleton<RoomTeleporter>
             {
                 sceneContet[i].SetActive(true);
                 player.Transform.position = pos;
-                yield return null;
+                if(i % 3 == 0)
+                    yield return null;
             }
         }
 
