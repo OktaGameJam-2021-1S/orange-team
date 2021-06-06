@@ -1,5 +1,19 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &6909320692394623374
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2841455288595701432}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78b9771076835b942a45716bc96ebba3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Range1: {x: 30, y: 30, z: 30}
+  Range2: {x: 90, y: 90, z: 90}
 --- !u!1 &5467873555446635359
 GameObject:
   m_ObjectHideFlags: 0
@@ -15,6 +29,8 @@ GameObject:
   - component: {fileID: 5467873555446635333}
   - component: {fileID: 5467873555446635332}
   - component: {fileID: 5095874215281445616}
+  - component: {fileID: -2921150941466655607}
+  - component: {fileID: 8937451139201705137}
   m_Layer: 0
   m_Name: DuckBombFalling
   m_TagString: Untagged
@@ -151,6 +167,116 @@ MonoBehaviour:
   Healthbar: {fileID: 0}
   ObjectToSpawn: {fileID: 2060212803351811498, guid: 38b99d63cdad9994b89d14c10a8783ce,
     type: 3}
+--- !u!82 &-2921150941466655607
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5467873555446635359}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 24300002, guid: 1c8c0c321987f7746a38fd902e00d096,
+    type: 2}
+  m_audioClip: {fileID: 8300000, guid: cd9e809b01e4cea4694849655c3e4b48, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &8937451139201705137
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5467873555446635359}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c031c07ac554254289983cf7dd82d46, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Audio: {fileID: -2921150941466655607}
 --- !u!1001 &8318949836537457077
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -220,6 +346,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ec1cddd8f466b944da98a92002f74995, type: 3}
+--- !u!1 &2841455288595701432 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6060781094230112013, guid: ec1cddd8f466b944da98a92002f74995,
+    type: 3}
+  m_PrefabInstance: {fileID: 8318949836537457077}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2841455288595701433 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6060781094230112012, guid: ec1cddd8f466b944da98a92002f74995,

@@ -14,6 +14,12 @@ public class Movable : MonoBehaviour
     {
         Body = GetComponent<Rigidbody>();
     }
+    protected virtual void OnEnable()
+    {
+        Body = GetComponent<Rigidbody>();
+        CurrentAcceleration = 0;
+        Body.velocity = Vector3.zero;
+    }
     void FixedUpdate()
     {
         CurrentAcceleration += Acceleration;

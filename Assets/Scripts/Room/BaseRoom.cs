@@ -13,4 +13,14 @@ public class BaseRoom : MonoBehaviour
     {
         Doors = GetComponentsInChildren<Door>();
     }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawSphere(Entrance.transform.position, .5f);
+        for (int i = 0; i < Doors.Length; i++)
+        {
+            Gizmos.DrawSphere(Doors[i].transform.position, .5f);
+        }
+        
+    }
 }

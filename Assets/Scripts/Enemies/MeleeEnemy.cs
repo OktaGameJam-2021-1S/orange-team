@@ -13,16 +13,19 @@ public class MeleeEnemy : BaseUnit, IEnemy
         Attack
     }
 
-    [SerializeField] private float Speed = 1f;
-
     [Header("Ranged")]
     [SerializeField] private GameObject Projectile;
     [SerializeField] private Transform ShootPosition;
 
-    State CurrentState;
-    IEntity Target;
-    float TimeToAttack;
-    Rigidbody Body;
+    [Header("Visual")]
+    [SerializeField] private Animator Animation;
+    [SerializeField] private float TimeToTakeDamage = .5f;
+
+    private State CurrentState;
+    private IEntity Target;
+    private float TimeToAttackAnimation;
+    private float TimeToTakeDamageCounter = .5f;
+    private Rigidbody Body;
 
     protected override void Start()
     {
@@ -36,7 +39,8 @@ public class MeleeEnemy : BaseUnit, IEnemy
         switch (state)
         {
             case State.Attack:
-                TimeToAttack = Data.AttackTime;
+                TimeToAttackAnimation = Data.AttackTime;
+                TimeToTakeDamageCounter = Data.AttackTime + TimeToTakeDamage;
                 break;
             case State.Find:
                 break;
@@ -54,21 +58,32 @@ public class MeleeEnemy : BaseUnit, IEnemy
         switch (CurrentState)
         {
             case State.Attack:
-                TimeToAttack -= Time.deltaTime;
-                if (TimeToAttack <= 0)
+                TimeToAttackAnimation -= Time.deltaTime;
+                TimeToTakeDamageCounter -= Time.deltaTime;
+                if (TimeToAttackAnimation <= 0)
+                {
+                    if (Animation != null)
+                    {
+                        Animation.enabled = true;
+                        Animation.SetTrigger("Attack");
+                    }
+                    TimeToAttackAnimation = Data.AttackTime;
+                }
+                if (TimeToTakeDamageCounter <= 0)
                 {
                     // ranged condition
-                    if(Projectile != null)
+                    if (Projectile != null)
                     {
-                        var projectile = Instantiate(Projectile);
-                        projectile.transform.position = ShootPosition.position;
-                        projectile.transform.rotation = ShootPosition.rotation;
+                        var goProjectile = SimpleObjectPooling.Instance.Instantiate(Projectile, ShootPosition.position);
+                        var projectile = goProjectile.GetComponent<Projectile>();
+                        goProjectile.transform.rotation = ShootPosition.rotation;
+                        projectile.Setup(this);
                     }
                     else
                     {
                         ((IEntity)Target).TakeDamage(this, Data.AttackDamage);
                     }
-                    TimeToAttack = Data.AttackTime;
+                    TimeToTakeDamageCounter = Data.AttackTime;
                 }
                 if (!IsInTargetRange())
                 {
@@ -94,17 +109,27 @@ public class MeleeEnemy : BaseUnit, IEnemy
             case State.Idle:
                 break;
             case State.Seek:
-                transform.LookAt(Target.Transform);
+                //LookAtTarget();
+                //transform.LookAt(Target.Transform);
                 break;
         }
+        LookAtTarget();
 
     }
+    void LookAtTarget()
+    {
+        if (Target == null)
+            return;
 
+        transform.LookAt(Target.Transform);
+        //Vector3 LookAtPoint = new Vector3(Target.Transform.position.x, 0, Target.Transform.position.y);
+        //transform.LookAt(LookAtPoint);
+    }
     private void FixedUpdate()
     {
         if (CurrentState == State.Seek)
         {
-            Body.position += Vector3.Normalize(Target.Transform.position - transform.position) * Speed * Time.fixedDeltaTime;
+            Body.position += Vector3.Normalize(Target.Transform.position - transform.position) * Data.Speed * Time.fixedDeltaTime;
             if (IsInTargetRange())
             {
                 SetState(State.Attack);

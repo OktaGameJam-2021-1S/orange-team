@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerControll : BaseUnit
+public class PlayerControll : BaseUnit, IPlayer
 {
     private Rigidbody _rb;
     [Header("Atributes")]
@@ -23,6 +23,7 @@ public class PlayerControll : BaseUnit
     private Vector3 _Rotation;
     private float _Velocity;
     private float _CurrentAcceleration;
+    private float _Height;
 
     //Variables to controll Jump
     public LayerMask groundMask;
@@ -30,7 +31,7 @@ public class PlayerControll : BaseUnit
     {
         get
         {
-            return Physics.Raycast(transform.position, Vector3.down, 0.6f, groundMask);
+            return Physics.Raycast(transform.position, Vector3.down, _Height, groundMask);
         }
     }
 
@@ -38,6 +39,7 @@ public class PlayerControll : BaseUnit
     {
         base.Start();
         _rb = GetComponent <Rigidbody>();
+        _Height = GetComponent<CapsuleCollider>().height;
         _Rotation = transform.rotation.eulerAngles;
     }
 
