@@ -27,6 +27,7 @@ public class RoomTeleporter : Singleton<RoomTeleporter>
         Fade?.gameObject.SetActive(true);
         if (Fade != null)
             Fade.SetTrigger("In");
+
         //player.Transform.gameObject.SetActive(false);
         player.Transform.gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
         yield return new WaitForSeconds(.2f);

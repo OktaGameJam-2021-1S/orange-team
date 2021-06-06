@@ -8,6 +8,7 @@ public class Spawner : MonoBehaviour
     [SerializeField] private float InitialDelay = 1f;
     [SerializeField] private float DelayBetweenObjects = 1f;
     [SerializeField] private int Amount;
+    [SerializeField] private bool Repeats = true;
     [SerializeField] private GameObject[] SpawnPrefabs;
     [SerializeField] private Transform[] SpawnPosition;
     [SerializeField] private Transform SpawnParent;
@@ -38,7 +39,7 @@ public class Spawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (SpawnCount >= Amount)
+        if (SpawnCount >= Amount && !Repeats)
             return;
 
         TimeToSpawn -= Time.deltaTime;
@@ -68,6 +69,11 @@ public class Spawner : MonoBehaviour
     private void CalculateNext()
     {
         TimeToSpawn = DelayBetweenObjects;
+        if (SpawnCount >= Amount && Repeats)
+        {
+            TimeToSpawn = InitialDelay;
+            SpawnCount = 0;
+        }
     }
 
 
