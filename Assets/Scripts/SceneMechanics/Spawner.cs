@@ -12,6 +12,7 @@ public class Spawner : MonoBehaviour
     [SerializeField] private GameObject[] SpawnPrefabs;
     [SerializeField] private Transform[] SpawnPosition;
     [SerializeField] private Transform SpawnParent;
+    [SerializeField] private Transform KillPoint;
 
     [Header("Preparation")]
     [SerializeField] GameObject Announcement;
@@ -82,8 +83,11 @@ public class Spawner : MonoBehaviour
         Gizmos.color = Color.green;
         foreach (var item in SpawnPosition)
         {
+            if (KillPoint != null)
+                Gizmos.DrawLine(KillPoint.position, item.transform.position);
             Gizmos.DrawCube(item.transform.position, Vector3.one);
         }
+
         
     }
 }
