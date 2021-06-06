@@ -70,13 +70,12 @@ public class DungeonCreator : MonoBehaviour
                     if (newRoom.Doors.Length > 0)
                         RoomsToProcess.Enqueue(newRoom);
                 }
-
                 //yield return null;
             }
         }
         for (int i = 1; i < AvailableRooms.Count; i++)
         {
-            //AvailableRooms[i].gameObject.SetActive(false);
+            AvailableRooms[i].gameObject.SetActive(false);
         }
         yield return null;
     }

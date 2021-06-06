@@ -18,20 +18,40 @@ public class Door : MonoBehaviour
 {
     public DoorDirection Direction;
     public int RoomToGo;
-    
+    private bool IsInside = false;
+
     public void SetRoomToGo(int roomToGo)
     {
         RoomToGo = roomToGo;
     }
 
-    private void OnTriggerStay(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
         if (other.tag == k.TagPlayer)
+            IsInside = true;
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.tag == k.TagPlayer)
+            IsInside = false;
+    }
+    //private void OnTriggerStay(Collider other)
+    //{
+    //    if (other.tag == k.TagPlayer)
+    //    {
+    //        if (Input.GetKeyDown(KeyCode.E))
+    //        {
+    //            RoomTeleporter.Instance.Teleport(other.GetComponent<IEntity>(), RoomToGo);
+    //        }
+    //    }
+    //}
+    private void Update()
+    {
+        if (IsInside && Input.GetKeyDown(KeyCode.E))
         {
-            if (Input.GetKeyDown(KeyCode.E))
-            {
-                RoomTeleporter.Instance.Teleport(other.GetComponent<IEntity>(), RoomToGo);
-            }
+            var players = GameObject.FindGameObjectWithTag(k.TagPlayer);
+            RoomTeleporter.Instance.Teleport(players.GetComponent<IEntity>(), RoomToGo);
+            IsInside = false;
         }
     }
 
