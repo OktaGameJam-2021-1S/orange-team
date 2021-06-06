@@ -26,10 +26,10 @@ public class SimpleObjectPooling : Singleton<SimpleObjectPooling>
             }
         }
 
-        var newInstance = Instantiate(reference, transform);
+        var newInstance = GameObject.Instantiate(reference, position, Quaternion.identity, transform);
         list.Add(newInstance);
         newInstance.SetActive(true);
-        newInstance.transform.position = position;
+        //newInstance.transform.position = position;
         return newInstance;
     }
 
@@ -43,8 +43,22 @@ public class SimpleObjectPooling : Singleton<SimpleObjectPooling>
             }
         }
     }
-    public void Destroy(GameObject go)
+    public void Destroy(GameObject go, float destroySchedule = -1)
     {
+        if (destroySchedule > 0)
+        {
+            StartCoroutine(CoDestroy(go, destroySchedule));
+        }
+        else
+        {
+            go.SetActive(false);
+        }
+    }
+    public IEnumerator CoDestroy(GameObject go, float time)
+    {
+        Debug.Log("will destroy", go);
+        yield return new WaitForSeconds(time);
+        Debug.Log("destroyed", go);
         go.SetActive(false);
     }
 }

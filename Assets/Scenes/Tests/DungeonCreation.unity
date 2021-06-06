@@ -912,6 +912,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: RangedDuck (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 2584706335987217226, guid: c1e361db43075774ba0394c2d4fc6840,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2584706335987217233, guid: c1e361db43075774ba0394c2d4fc6840,
         type: 3}
       propertyPath: m_RootOrder
@@ -1183,7 +1188,7 @@ PrefabInstance:
     - target: {fileID: 2328557842624850880, guid: daa68fcab88abd74cb45d61277d33700,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -2.96
+      value: 4.69
       objectReference: {fileID: 0}
     - target: {fileID: 2328557842624850880, guid: daa68fcab88abd74cb45d61277d33700,
         type: 3}
@@ -2923,7 +2928,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1229897433
 Transform:
   m_ObjectHideFlags: 0
@@ -3026,10 +3031,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MeleeDuck (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 4928024953914950549, guid: 41da834a02343a64f81d670ac75e445d,
+    - target: {fileID: 488339099152208721, guid: 41da834a02343a64f81d670ac75e445d,
         type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.91
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 41da834a02343a64f81d670ac75e445d, type: 3}
@@ -3114,102 +3119,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1132662004, guid: 9df352a1d72db6643b881e6e8d9c77e5, type: 3}
-      propertyPath: outlineTargets.Array.size
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 1132662004, guid: 9df352a1d72db6643b881e6e8d9c77e5, type: 3}
-      propertyPath: outlineTargets.Array.data[3].Renderer
-      value: 
-      objectReference: {fileID: 1384203123}
-    - target: {fileID: 1132662004, guid: 9df352a1d72db6643b881e6e8d9c77e5, type: 3}
-      propertyPath: outlineTargets.Array.data[4].Renderer
-      value: 
-      objectReference: {fileID: 1384203123}
-    - target: {fileID: 1132662004, guid: 9df352a1d72db6643b881e6e8d9c77e5, type: 3}
-      propertyPath: outlineTargets.Array.data[5].Renderer
-      value: 
-      objectReference: {fileID: 1384203122}
-    - target: {fileID: 1132662004, guid: 9df352a1d72db6643b881e6e8d9c77e5, type: 3}
-      propertyPath: outlineTargets.Array.data[6].Renderer
-      value: 
-      objectReference: {fileID: 1384203121}
-    - target: {fileID: 1132662004, guid: 9df352a1d72db6643b881e6e8d9c77e5, type: 3}
-      propertyPath: outlineTargets.Array.data[7].CullMode
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1132662004, guid: 9df352a1d72db6643b881e6e8d9c77e5, type: 3}
-      propertyPath: outlineTargets.Array.data[7].Renderer
-      value: 
-      objectReference: {fileID: 1384203120}
-    - target: {fileID: 1132662004, guid: 9df352a1d72db6643b881e6e8d9c77e5, type: 3}
-      propertyPath: outlineTargets.Array.data[8].CullMode
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1132662004, guid: 9df352a1d72db6643b881e6e8d9c77e5, type: 3}
-      propertyPath: outlineTargets.Array.data[8].Renderer
-      value: 
-      objectReference: {fileID: 1384203119}
-    - target: {fileID: 1132662004, guid: 9df352a1d72db6643b881e6e8d9c77e5, type: 3}
-      propertyPath: outlineTargets.Array.data[9].CullMode
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1132662004, guid: 9df352a1d72db6643b881e6e8d9c77e5, type: 3}
-      propertyPath: outlineTargets.Array.data[9].Renderer
-      value: 
-      objectReference: {fileID: 1384203118}
-    - target: {fileID: 1132662004, guid: 9df352a1d72db6643b881e6e8d9c77e5, type: 3}
-      propertyPath: outlineTargets.Array.data[4].SubmeshIndex
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1132662004, guid: 9df352a1d72db6643b881e6e8d9c77e5, type: 3}
-      propertyPath: outlineTargets.Array.data[7].CutoutThreshold
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1132662004, guid: 9df352a1d72db6643b881e6e8d9c77e5, type: 3}
-      propertyPath: outlineTargets.Array.data[8].CutoutThreshold
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1132662004, guid: 9df352a1d72db6643b881e6e8d9c77e5, type: 3}
-      propertyPath: outlineTargets.Array.data[9].CutoutThreshold
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1132662004, guid: 9df352a1d72db6643b881e6e8d9c77e5, type: 3}
-      propertyPath: outlineTargets.Array.data[7].edgeDilateAmount
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1132662004, guid: 9df352a1d72db6643b881e6e8d9c77e5, type: 3}
-      propertyPath: outlineTargets.Array.data[8].edgeDilateAmount
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1132662004, guid: 9df352a1d72db6643b881e6e8d9c77e5, type: 3}
-      propertyPath: outlineTargets.Array.data[9].edgeDilateAmount
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1132662004, guid: 9df352a1d72db6643b881e6e8d9c77e5, type: 3}
-      propertyPath: outlineTargets.Array.data[7].backEdgeDilateAmount
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1132662004, guid: 9df352a1d72db6643b881e6e8d9c77e5, type: 3}
-      propertyPath: outlineTargets.Array.data[8].backEdgeDilateAmount
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1132662004, guid: 9df352a1d72db6643b881e6e8d9c77e5, type: 3}
-      propertyPath: outlineTargets.Array.data[9].backEdgeDilateAmount
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1132662004, guid: 9df352a1d72db6643b881e6e8d9c77e5, type: 3}
-      propertyPath: outlineTargets.Array.data[7].frontEdgeDilateAmount
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1132662004, guid: 9df352a1d72db6643b881e6e8d9c77e5, type: 3}
-      propertyPath: outlineTargets.Array.data[8].frontEdgeDilateAmount
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1132662004, guid: 9df352a1d72db6643b881e6e8d9c77e5, type: 3}
-      propertyPath: outlineTargets.Array.data[9].frontEdgeDilateAmount
-      value: 5
-      objectReference: {fileID: 0}
     - target: {fileID: 488339099152208714, guid: 9df352a1d72db6643b881e6e8d9c77e5,
         type: 3}
       propertyPath: m_RootOrder
@@ -3270,44 +3179,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: DuckTank
       objectReference: {fileID: 0}
+    - target: {fileID: 488339099152208721, guid: 9df352a1d72db6643b881e6e8d9c77e5,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9df352a1d72db6643b881e6e8d9c77e5, type: 3}
---- !u!137 &1384203118 stripped
-SkinnedMeshRenderer:
-  m_CorrespondingSourceObject: {fileID: 739904701994870968, guid: 9df352a1d72db6643b881e6e8d9c77e5,
-    type: 3}
-  m_PrefabInstance: {fileID: 1384203117}
-  m_PrefabAsset: {fileID: 0}
---- !u!137 &1384203119 stripped
-SkinnedMeshRenderer:
-  m_CorrespondingSourceObject: {fileID: 2082775813638609462, guid: 9df352a1d72db6643b881e6e8d9c77e5,
-    type: 3}
-  m_PrefabInstance: {fileID: 1384203117}
-  m_PrefabAsset: {fileID: 0}
---- !u!137 &1384203120 stripped
-SkinnedMeshRenderer:
-  m_CorrespondingSourceObject: {fileID: 6516464686950849468, guid: 9df352a1d72db6643b881e6e8d9c77e5,
-    type: 3}
-  m_PrefabInstance: {fileID: 1384203117}
-  m_PrefabAsset: {fileID: 0}
---- !u!137 &1384203121 stripped
-SkinnedMeshRenderer:
-  m_CorrespondingSourceObject: {fileID: 713605333568764632, guid: 9df352a1d72db6643b881e6e8d9c77e5,
-    type: 3}
-  m_PrefabInstance: {fileID: 1384203117}
-  m_PrefabAsset: {fileID: 0}
---- !u!137 &1384203122 stripped
-SkinnedMeshRenderer:
-  m_CorrespondingSourceObject: {fileID: 464120209005750337, guid: 9df352a1d72db6643b881e6e8d9c77e5,
-    type: 3}
-  m_PrefabInstance: {fileID: 1384203117}
-  m_PrefabAsset: {fileID: 0}
---- !u!23 &1384203123 stripped
-MeshRenderer:
-  m_CorrespondingSourceObject: {fileID: 3252090888076484519, guid: 9df352a1d72db6643b881e6e8d9c77e5,
-    type: 3}
-  m_PrefabInstance: {fileID: 1384203117}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1400523189
 GameObject:
   m_ObjectHideFlags: 0
@@ -3429,6 +3307,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SuperDuck
+      objectReference: {fileID: 0}
+    - target: {fileID: 488339099152208721, guid: ceac041e230c65644ab72f8f5ec4008a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ceac041e230c65644ab72f8f5ec4008a, type: 3}
