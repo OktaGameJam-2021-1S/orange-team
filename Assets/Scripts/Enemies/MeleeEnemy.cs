@@ -39,8 +39,8 @@ public class MeleeEnemy : BaseUnit, IEnemy
         switch (state)
         {
             case State.Attack:
-                TimeToAttackAnimation = Data.AttackTime;
-                TimeToTakeDamageCounter = Data.AttackTime + TimeToTakeDamage;
+                TimeToAttackAnimation = 0.3f;// Data.AttackTime;
+                TimeToTakeDamageCounter = 0.3f+TimeToTakeDamage;// Data.AttackTime + TimeToTakeDamage;
                 break;
             case State.Find:
                 if (Animation != null)

@@ -101,7 +101,7 @@ CapsuleCollider:
   m_Radius: 0.6
   m_Height: 1.5
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 0.75, z: 0}
 --- !u!54 &5060902525881620751
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -113,8 +113,8 @@ Rigidbody:
   m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 96
   m_CollisionDetection: 0
@@ -196,7 +196,7 @@ MonoBehaviour:
   - edgeDilateAmount: 5
     frontEdgeDilateAmount: 5
     backEdgeDilateAmount: 5
-    Renderer: {fileID: 0}
+    Renderer: {fileID: 3252090888076484519}
     SubmeshIndex: 0
     ForceRecalculateBounds: 0
     CutoutDescriptionType: 0
@@ -208,7 +208,19 @@ MonoBehaviour:
   - edgeDilateAmount: 5
     frontEdgeDilateAmount: 5
     backEdgeDilateAmount: 5
-    Renderer: {fileID: 0}
+    Renderer: {fileID: 3252090888076484519}
+    SubmeshIndex: 1
+    ForceRecalculateBounds: 0
+    CutoutDescriptionType: 0
+    CutoutThreshold: 0.5
+    CullMode: 2
+    cutoutTextureName: 
+    DilateRenderingMode: 0
+    cutoutTextureIndex: 0
+  - edgeDilateAmount: 5
+    frontEdgeDilateAmount: 5
+    backEdgeDilateAmount: 5
+    Renderer: {fileID: 464120209005750337}
     SubmeshIndex: 0
     ForceRecalculateBounds: 0
     CutoutDescriptionType: 0
@@ -220,7 +232,7 @@ MonoBehaviour:
   - edgeDilateAmount: 5
     frontEdgeDilateAmount: 5
     backEdgeDilateAmount: 5
-    Renderer: {fileID: 0}
+    Renderer: {fileID: 713605333568764632}
     SubmeshIndex: 0
     ForceRecalculateBounds: 0
     CutoutDescriptionType: 0
@@ -232,7 +244,31 @@ MonoBehaviour:
   - edgeDilateAmount: 5
     frontEdgeDilateAmount: 5
     backEdgeDilateAmount: 5
-    Renderer: {fileID: 0}
+    Renderer: {fileID: 6516464686950849468}
+    SubmeshIndex: 0
+    ForceRecalculateBounds: 0
+    CutoutDescriptionType: 0
+    CutoutThreshold: 0.5
+    CullMode: 2
+    cutoutTextureName: 
+    DilateRenderingMode: 0
+    cutoutTextureIndex: 0
+  - edgeDilateAmount: 5
+    frontEdgeDilateAmount: 5
+    backEdgeDilateAmount: 5
+    Renderer: {fileID: 2082775813638609462}
+    SubmeshIndex: 0
+    ForceRecalculateBounds: 0
+    CutoutDescriptionType: 0
+    CutoutThreshold: 0.5
+    CullMode: 2
+    cutoutTextureName: 
+    DilateRenderingMode: 0
+    cutoutTextureIndex: 0
+  - edgeDilateAmount: 5
+    frontEdgeDilateAmount: 5
+    backEdgeDilateAmount: 5
+    Renderer: {fileID: 739904701994870968}
     SubmeshIndex: 0
     ForceRecalculateBounds: 0
     CutoutDescriptionType: 0
@@ -292,8 +328,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5801645077728120991}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.908, z: 0}
-  m_LocalScale: {x: 1, y: 0.22884999, z: 0.22079}
+  m_LocalPosition: {x: 0, y: 2.573, z: 0}
+  m_LocalScale: {x: 1, y: 0.099999994, z: 0.099999994}
   m_Children: []
   m_Father: {fileID: 488339099152208714}
   m_RootOrder: 0
@@ -373,8 +409,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7944470072030512781}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.9079999, z: 0}
-  m_LocalScale: {x: 0.73, y: 0.251735, z: 0.242869}
+  m_LocalPosition: {x: 0, y: 2.573, z: 0}
+  m_LocalScale: {x: 0.73, y: 0.11, z: 0.11}
   m_Children: []
   m_Father: {fileID: 488339099152208714}
   m_RootOrder: 1
@@ -468,7 +504,7 @@ PrefabInstance:
     - target: {fileID: 1175910832524192204, guid: cb34e27b0a02d8b429c5baa058b8491c,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.69
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1175910832524192204, guid: cb34e27b0a02d8b429c5baa058b8491c,
         type: 3}
@@ -646,6 +682,42 @@ Transform:
 --- !u!95 &4242437917636603828 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 4928030676267070536, guid: cb34e27b0a02d8b429c5baa058b8491c,
+    type: 3}
+  m_PrefabInstance: {fileID: 9116353294325832700}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &3252090888076484519 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 6026507258485376091, guid: cb34e27b0a02d8b429c5baa058b8491c,
+    type: 3}
+  m_PrefabInstance: {fileID: 9116353294325832700}
+  m_PrefabAsset: {fileID: 0}
+--- !u!137 &464120209005750337 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 8715355727513711549, guid: cb34e27b0a02d8b429c5baa058b8491c,
+    type: 3}
+  m_PrefabInstance: {fileID: 9116353294325832700}
+  m_PrefabAsset: {fileID: 0}
+--- !u!137 &713605333568764632 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 8603273044220207396, guid: cb34e27b0a02d8b429c5baa058b8491c,
+    type: 3}
+  m_PrefabInstance: {fileID: 9116353294325832700}
+  m_PrefabAsset: {fileID: 0}
+--- !u!137 &6516464686950849468 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 2660757795503456320, guid: cb34e27b0a02d8b429c5baa058b8491c,
+    type: 3}
+  m_PrefabInstance: {fileID: 9116353294325832700}
+  m_PrefabAsset: {fileID: 0}
+--- !u!137 &2082775813638609462 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 7089873713137746378, guid: cb34e27b0a02d8b429c5baa058b8491c,
+    type: 3}
+  m_PrefabInstance: {fileID: 9116353294325832700}
+  m_PrefabAsset: {fileID: 0}
+--- !u!137 &739904701994870968 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 8414800451262444356, guid: cb34e27b0a02d8b429c5baa058b8491c,
     type: 3}
   m_PrefabInstance: {fileID: 9116353294325832700}
   m_PrefabAsset: {fileID: 0}

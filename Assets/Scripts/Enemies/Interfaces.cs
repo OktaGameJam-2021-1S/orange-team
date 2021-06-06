@@ -31,3 +31,5 @@ public class EntityData
     public int AttackDamage;
     public float Speed;
 }
+
+

@@ -7,9 +7,11 @@ using UnityEngine;
 public class DungeonCreator : MonoBehaviour
 {
     [Serializable]
-    public struct RoomTemplate
+    public class RoomTemplate
     {
         public DoorDirection Direction;
+        public GameObject[] RoomsGO;
+        [NonSerialized]
         public BaseRoom[] Rooms;
     }
     public List<RoomTemplate> RoomsTemplate;
@@ -33,7 +35,12 @@ public class DungeonCreator : MonoBehaviour
         string grid = StartRoom.transform.position.x + "-" + StartRoom.transform.position.y + "-" + StartRoom.transform.position.z;
         RoomGrid.Add(grid, StartRoom);
         AvailableRooms.Add(StartRoom);
+        Debug.Log($"Room created grid[{grid}]");
         RoomsToProcess.Enqueue(StartRoom);
+        foreach (var item in RoomsTemplate)
+        {
+            item.Rooms = item.RoomsGO.Select(p => p.GetComponentInChildren<BaseRoom>()).ToArray();
+        }
         yield return StartCoroutine(CreateRoom());
     }
     IEnumerator CreateRoom()
@@ -46,7 +53,7 @@ public class DungeonCreator : MonoBehaviour
                 var roomToGo = room.Doors[i].Direction;
                 var roomToGoPosition = room.transform.position + GetOffset(roomToGo);
                 string grid = roomToGoPosition.x + "-" + roomToGoPosition.y + "-" + roomToGoPosition.z;
-                Debug.Log($"preparing room grid[{grid}]");
+                Debug.Log($"preparing room grid[{grid}] => {roomToGo}");
                 if (RoomGrid.ContainsKey(grid))
                 {
                     var newRoom = RoomGrid[grid];
@@ -55,6 +62,11 @@ public class DungeonCreator : MonoBehaviour
                 else
                 {
                     var templates = RoomsTemplate.Where(p => p.Direction == roomToGo).FirstOrDefault();
+                    if(templates == null)
+                    {
+                        Debug.LogError($"Has no template for[{roomToGo}]");
+                        continue;
+                    }
                     Debug.Log($"will create Direction[{templates.Direction}]");
                     int roomIdx = RoomRandom.Next(0, templates.Rooms.Length);
                     var roomToCreate = templates.Rooms[roomIdx];

@@ -30,8 +30,10 @@ public class RoomTeleporter : Singleton<RoomTeleporter>
 
         //player.Transform.gameObject.SetActive(false);
         player.Transform.gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
+        Vector3 pos = player.Transform.position;
         yield return new WaitForSeconds(.2f);
         SimpleObjectPooling.Instance.DisableAll();
+        List<GameObject> sceneContet = new List<GameObject>();
         try
         {
             var nextDungeon = DungeonData.AvailableRooms[roomIndex];
@@ -50,19 +52,54 @@ public class RoomTeleporter : Singleton<RoomTeleporter>
                     nearest = i;
                 }
             }
-            var pos = nextDungeon.Doors[nearest].transform.position;
-            pos = pos + Vector3.Normalize(pos - player.Transform.position) * 1f;
+            pos = nextDungeon.Doors[nearest].transform.position;
+            pos = pos + Vector3.Normalize(player.Transform.position - pos) * 3f;
             player.Transform.position = pos;
-        }catch(Exception e)
+
+            Traverse(nextDungeon.SceneContent, sceneContet);
+        }
+        catch(Exception e)
         {
             Debug.LogError(e.Message);
         }
 
-
+        
         if (Fade != null)
             Fade.SetTrigger("Out");
+        if (sceneContet != null)
+        {
+            for (int i = 0; i < sceneContet.Count; i++)
+            {
+                sceneContet[i].SetActive(false);
+            }
+        }
         yield return new WaitForSeconds(.2f);
+
+        if (sceneContet != null)
+        {
+            for (int i = 0; i < sceneContet.Count; i++)
+            {
+                sceneContet[i].SetActive(true);
+                player.Transform.position = pos;
+                yield return null;
+            }
+        }
+
         Fade?.gameObject.SetActive(false);
         //player.Transform.gameObject.SetActive(true);
+    }
+
+
+    void Traverse(GameObject obj, List<GameObject> list)
+    {
+        Debug.Log(obj.name);
+        foreach (Transform child in obj.transform)
+        {
+            if (!child.gameObject.activeSelf)
+                continue;
+            list.Add(child.gameObject);
+            Traverse(child.gameObject, list);
+        }
+
     }
 }

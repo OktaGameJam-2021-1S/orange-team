@@ -47,8 +47,11 @@ public class BaseUnit : MonoBehaviour, IEntity
     public void TakeDamage(IEntity owner, int damage)
     {
         SetHealth(EntityData.CurrentLife - damage);
+        if(Data.CurrentLife <= 0)
+        {
+            SimpleObjectPooling.Instance.Destroy(gameObject);
+        }
     }
-
 }
 
 

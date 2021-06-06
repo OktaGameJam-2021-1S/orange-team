@@ -8,6 +8,7 @@ public class BaseRoom : MonoBehaviour
     public int PreviousRoomIndex;
     public GameObject Entrance;
     public Door[] Doors;
+    public GameObject SceneContent;
 
     private void Awake()
     {
