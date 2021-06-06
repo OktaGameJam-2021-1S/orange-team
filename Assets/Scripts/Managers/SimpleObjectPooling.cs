@@ -33,6 +33,16 @@ public class SimpleObjectPooling : Singleton<SimpleObjectPooling>
         return newInstance;
     }
 
+    public void DisableAll()
+    {
+        foreach (var item in PoolDB)
+        {
+            foreach (var item1 in item.Value)
+            {
+                item1.gameObject.SetActive(false);
+            }
+        }
+    }
     public void Destroy(GameObject go)
     {
         go.SetActive(false);

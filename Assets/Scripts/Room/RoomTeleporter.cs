@@ -9,11 +9,12 @@ using UnityEngine;
 public class RoomTeleporter : Singleton<RoomTeleporter>
 {
     private DungeonCreator DungeonData;
-
+    public Animator Fade;
 
     private void Start()
     {
         DungeonData = GameObject.FindObjectOfType<DungeonCreator>();
+        Fade?.gameObject.SetActive(false);
     }
     public void Teleport(IEntity player, int roomIndex)
     {
@@ -23,9 +24,13 @@ public class RoomTeleporter : Singleton<RoomTeleporter>
     IEnumerator COTeleport(IEntity player, int roomIndex)
     {
         Debug.Log("Teleporting to: " + roomIndex + " / " + DungeonData.AvailableRooms.Count);
+        Fade?.gameObject.SetActive(true);
+        if (Fade != null)
+            Fade.SetTrigger("In");
         //player.Transform.gameObject.SetActive(false);
+        player.Transform.gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
         yield return new WaitForSeconds(.2f);
-
+        SimpleObjectPooling.Instance.DisableAll();
         try
         {
             var nextDungeon = DungeonData.AvailableRooms[roomIndex];
@@ -52,9 +57,11 @@ public class RoomTeleporter : Singleton<RoomTeleporter>
             Debug.LogError(e.Message);
         }
 
-        
 
+        if (Fade != null)
+            Fade.SetTrigger("Out");
         yield return new WaitForSeconds(.2f);
+        Fade?.gameObject.SetActive(false);
         //player.Transform.gameObject.SetActive(true);
     }
 }
