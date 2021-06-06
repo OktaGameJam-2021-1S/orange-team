@@ -517,6 +517,75 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e93c8297cdd8fa640a24be1a8c99150d, type: 3}
+--- !u!1001 &1325714455977709741
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2653944422976817512, guid: de0134a1d5439a54fad9622578254149,
+        type: 3}
+      propertyPath: m_Name
+      value: JoystickModel
+      objectReference: {fileID: 0}
+    - target: {fileID: 4900006463111220107, guid: de0134a1d5439a54fad9622578254149,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4900006463111220107, guid: de0134a1d5439a54fad9622578254149,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4900006463111220107, guid: de0134a1d5439a54fad9622578254149,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4900006463111220107, guid: de0134a1d5439a54fad9622578254149,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4900006463111220107, guid: de0134a1d5439a54fad9622578254149,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4900006463111220107, guid: de0134a1d5439a54fad9622578254149,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4900006463111220107, guid: de0134a1d5439a54fad9622578254149,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4900006463111220107, guid: de0134a1d5439a54fad9622578254149,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4900006463111220107, guid: de0134a1d5439a54fad9622578254149,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4900006463111220107, guid: de0134a1d5439a54fad9622578254149,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4900006463111220107, guid: de0134a1d5439a54fad9622578254149,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: de0134a1d5439a54fad9622578254149, type: 3}
 --- !u!1001 &4928030676407075134
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -810,6 +879,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: DinoPlayer
+      objectReference: {fileID: 0}
+    - target: {fileID: 7231825800143889370, guid: c4650eb8010b55c4abfa14d9b9acd498,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c4650eb8010b55c4abfa14d9b9acd498, type: 3}
