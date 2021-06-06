@@ -30,6 +30,7 @@ public class RoomTeleporter : Singleton<RoomTeleporter>
 
         //player.Transform.gameObject.SetActive(false);
         player.Transform.gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
+        Vector3 pos = player.Transform.position;
         yield return new WaitForSeconds(.2f);
         SimpleObjectPooling.Instance.DisableAll();
         List<GameObject> sceneContet = new List<GameObject>();
@@ -51,7 +52,7 @@ public class RoomTeleporter : Singleton<RoomTeleporter>
                     nearest = i;
                 }
             }
-            var pos = nextDungeon.Doors[nearest].transform.position;
+            pos = nextDungeon.Doors[nearest].transform.position;
             pos = pos + Vector3.Normalize(player.Transform.position - pos) * 3f;
             player.Transform.position = pos;
 
@@ -79,6 +80,7 @@ public class RoomTeleporter : Singleton<RoomTeleporter>
             for (int i = 0; i < sceneContet.Count; i++)
             {
                 sceneContet[i].SetActive(true);
+                player.Transform.position = pos;
                 yield return null;
             }
         }
