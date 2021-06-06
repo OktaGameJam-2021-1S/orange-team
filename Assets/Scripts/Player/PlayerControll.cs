@@ -7,7 +7,9 @@ public class PlayerControll : BaseUnit, IPlayer
     private Rigidbody _rb;
     [Header("Atributes")]
     [SerializeField]
-    private float _Damage;
+    private int _Damage;
+    [SerializeField]
+    private float _AtackDelay;
     [SerializeField]
     private float _JumpForce;
     [SerializeField]
@@ -32,13 +34,14 @@ public class PlayerControll : BaseUnit, IPlayer
     {
         get
         {
-            return Physics.Raycast(transform.position, Vector3.down, _Height, groundMask);
+            return Physics.Raycast(weapon.position, Vector3.down, _Height, groundMask);
         }
     }
 
     //Variables to atack
     [SerializeField]
     private float _AtackDistance;
+    private float _AtackDelayCount;
     private RaycastHit hit;
     public Transform weapon;
 
@@ -101,15 +104,23 @@ public class PlayerControll : BaseUnit, IPlayer
 
     private void Atack()
     {
-        
-        if (Input.GetButtonDown("Fire1"))
+        if (_AtackDelayCount > _AtackDelay)
         {
-            Debug.Log("atack");
-            if (Physics.Raycast(weapon.position, weapon.forward, out hit, _AtackDistance))
+            if (Input.GetButtonDown("Fire1"))
             {
-                Debug.Log("hit");
-                Destroy(hit.transform.gameObject);
+                Debug.Log("atack");
+                if (Physics.Raycast(weapon.position, weapon.forward, out hit, _AtackDistance))
+                {
+                    if (hit.transform.tag == "Enemy")
+                    {
+                        hit.transform.GetComponent<BaseUnit>().TakeDamage(this, _Damage);
+                        Debug.Log(hit);
+                    }
+                }
+                _AtackDelayCount = 0;
             }
         }
+
+        _AtackDelayCount += Time.deltaTime;
     }
 }
