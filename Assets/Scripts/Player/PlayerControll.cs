@@ -54,11 +54,12 @@ public class PlayerControll : BaseUnit, IPlayer
     void Update()
     {
         //Debug.Log(IsGrounded);
-        if (IsGrounded)
+        //if (IsGrounded)
         {
             RotatePlayer();
             MovePlayer();
-            Jump();
+            if (IsGrounded)
+                Jump();
         }
         Atack();
     }

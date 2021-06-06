@@ -56,9 +56,7 @@ public class SimpleObjectPooling : Singleton<SimpleObjectPooling>
     }
     public IEnumerator CoDestroy(GameObject go, float time)
     {
-        Debug.Log("will destroy", go);
         yield return new WaitForSeconds(time);
-        Debug.Log("destroyed", go);
         go.SetActive(false);
     }
 }
