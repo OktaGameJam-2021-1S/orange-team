@@ -734,12 +734,22 @@ PrefabInstance:
     - target: {fileID: 2328557842624850884, guid: daa68fcab88abd74cb45d61277d33700,
         type: 3}
       propertyPath: _Damage
-      value: 5
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 2328557842624850884, guid: daa68fcab88abd74cb45d61277d33700,
+        type: 3}
+      propertyPath: _AtackDelay
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 2328557842624850884, guid: daa68fcab88abd74cb45d61277d33700,
         type: 3}
       propertyPath: _AtackDistance
-      value: 10
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 2328557842624850884, guid: daa68fcab88abd74cb45d61277d33700,
+        type: 3}
+      propertyPath: _RotateVelocity
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 2328557842624850906, guid: daa68fcab88abd74cb45d61277d33700,
         type: 3}

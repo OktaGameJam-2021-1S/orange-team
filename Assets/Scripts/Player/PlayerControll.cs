@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerControll : BaseUnit, IPlayer
 {
+    public Animator anim;
+
     private Rigidbody _rb;
     [Header("Atributes")]
     [SerializeField]
@@ -48,6 +50,7 @@ public class PlayerControll : BaseUnit, IPlayer
     protected override void Start()
     {
         base.Start();
+        _AtackDelayCount = _AtackDelay;
         _rb = GetComponent <Rigidbody>();
         _Height = GetComponent<CapsuleCollider>().height ;
         _Rotation = transform.rotation.eulerAngles;
@@ -78,12 +81,15 @@ public class PlayerControll : BaseUnit, IPlayer
         
         if (Input.GetAxis("Vertical") != 0)
         {
+            anim.SetBool("Walking",true);
             _CurrentAcceleration = _Acceleration * Input.GetAxis("Vertical") * Time.deltaTime;
             _Velocity += _CurrentAcceleration;
             _Velocity = Mathf.Clamp(_Velocity, -_MaxVelocity, _MaxVelocity);
         }
         else
         {
+            anim.SetBool("Walking", false);
+
             if (_Velocity != 0)
             {
                 _Velocity *= _BreakForce;
@@ -108,13 +114,12 @@ public class PlayerControll : BaseUnit, IPlayer
         {
             if (Input.GetButtonDown("Fire1"))
             {
-                Debug.Log("atack");
+                anim.SetTrigger("Atack");
                 if (Physics.Raycast(weapon.position, weapon.forward, out hit, _AtackDistance))
                 {
                     if (hit.transform.tag == "Enemy")
                     {
                         hit.transform.GetComponent<BaseUnit>().TakeDamage(this, _Damage);
-                        Debug.Log(hit);
                     }
                 }
                 _AtackDelayCount = 0;
