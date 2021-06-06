@@ -651,10 +651,5 @@ PrefabInstance:
       propertyPath: m_Name
       value: DuckMeele
       objectReference: {fileID: 0}
-    - target: {fileID: 6060781094230112013, guid: ec1cddd8f466b944da98a92002f74995,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ec1cddd8f466b944da98a92002f74995, type: 3}
