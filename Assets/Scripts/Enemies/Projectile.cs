@@ -56,9 +56,11 @@ public class Projectile : Movable
     //}
     private void OnCollisionEnter(Collision collision)
     {
+        //Debug.Log("OnCollisionEnter", collision.gameObject);
         var entity = collision.gameObject.GetComponent<IEntity>();
         if (entity != null)
         {
+            //Debug.Log("OnCollisionEnter on Entity!", collision.gameObject);
             entity.TakeDamage(Owner, Owner.Data.AttackDamage);
         }
 

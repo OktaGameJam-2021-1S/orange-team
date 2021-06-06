@@ -46,11 +46,12 @@ public class PlayerControll : BaseUnit, IPlayer
     // Update is called once per frame
     void Update()
     {
-        if (IsGrounded)
+        //if (IsGrounded)
         {
             RotatePlayer();
             MovePlayer();
-            Jump();
+            if (IsGrounded)
+                Jump();
         }
     }
 

@@ -49,6 +49,7 @@ public class Door : MonoBehaviour
     {
         if (IsInside && Input.GetKeyDown(KeyCode.E))
         {
+            
             var players = GameObject.FindGameObjectWithTag(k.TagPlayer);
             RoomTeleporter.Instance.Teleport(players.GetComponent<IEntity>(), RoomToGo);
             IsInside = false;
@@ -59,8 +60,11 @@ public class Door : MonoBehaviour
     {
         if (!Application.isPlaying)
             return;
+        
         Gizmos.color = Color.green;
         var dungeon = GameObject.FindObjectOfType<DungeonCreator>();
+        if (dungeon == null ||dungeon.AvailableRooms.Count <= 0)
+            return;
         Gizmos.DrawLine(
                      transform.position,
                     dungeon.AvailableRooms[RoomToGo].Entrance.transform.position
