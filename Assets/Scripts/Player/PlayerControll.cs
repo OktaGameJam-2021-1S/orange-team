@@ -18,12 +18,13 @@ public class PlayerControll : BaseUnit, IPlayer
     private float _BreakForce;
     [SerializeField]
     private float _RotateVelocity;
+    
 
     //Variables to controll Moviment
     private Vector3 _Rotation;
     private float _Velocity;
     private float _CurrentAcceleration;
-    private float _Height;
+    public float _Height;
 
     //Variables to controll Jump
     public LayerMask groundMask;
@@ -35,23 +36,31 @@ public class PlayerControll : BaseUnit, IPlayer
         }
     }
 
+    //Variables to atack
+    [SerializeField]
+    private float _AtackDistance;
+    private RaycastHit hit;
+    public Transform weapon;
+
     protected override void Start()
     {
         base.Start();
         _rb = GetComponent <Rigidbody>();
-        _Height = GetComponent<CapsuleCollider>().height;
+        _Height = GetComponent<CapsuleCollider>().height ;
         _Rotation = transform.rotation.eulerAngles;
     }
 
     // Update is called once per frame
     void Update()
     {
+        //Debug.Log(IsGrounded);
         if (IsGrounded)
         {
             RotatePlayer();
             MovePlayer();
             Jump();
         }
+        Atack();
     }
 
     private void RotatePlayer()
@@ -86,6 +95,20 @@ public class PlayerControll : BaseUnit, IPlayer
         if (Input.GetButton("Jump"))
         {
             _rb.velocity = new Vector3(_rb.velocity.x, _JumpForce, _rb.velocity.z);
+        }
+    }
+
+    private void Atack()
+    {
+        
+        if (Input.GetButtonDown("Fire1"))
+        {
+            Debug.Log("atack");
+            if (Physics.Raycast(weapon.position, weapon.forward, out hit, _AtackDistance))
+            {
+                Debug.Log("hit");
+                Destroy(hit.transform.gameObject);
+            }
         }
     }
 }
