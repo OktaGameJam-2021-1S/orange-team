@@ -15,19 +15,19 @@ RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 9
   m_Fog: 0
-  m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  m_FogColor: {r: 1, g: 1, b: 1, a: 1}
   m_FogMode: 3
-  m_FogDensity: 0.01
+  m_FogDensity: 0.003
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
+  m_AmbientSkyColor: {r: 0, g: 0, b: 0, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
   m_AmbientMode: 0
-  m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
+  m_SubtractiveShadowColor: {r: 0.4528302, g: 0.4528302, b: 0.4528302, a: 1}
   m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
-  m_HaloStrength: 0.5
+  m_HaloStrength: 1
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
   m_HaloTexture: {fileID: 0}
@@ -35,10 +35,10 @@ RenderSettings:
   m_DefaultReflectionMode: 0
   m_DefaultReflectionResolution: 128
   m_ReflectionBounces: 1
-  m_ReflectionIntensity: 1
+  m_ReflectionIntensity: 0.785
   m_CustomReflection: {fileID: 0}
-  m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4366757, g: 0.48427194, b: 0.5645252, a: 1}
+  m_Sun: {fileID: 1141977243}
+  m_IndirectSpecularColor: {r: 0.38950273, g: 0.43253246, b: 0.5050859, a: 0.785}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -159,8 +159,8 @@ Camera:
   m_GameObject: {fileID: 543656261}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0.39607847, g: 0.654902, b: 0.654902, a: 1}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -200,8 +200,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 543656261}
-  m_LocalRotation: {x: 0.09047071, y: 0.8705905, z: -0.17466715, w: 0.4509753}
-  m_LocalPosition: {x: -20.39725, y: 14.276913, z: 50.05001}
+  m_LocalRotation: {x: -0.022424033, y: -0.977578, z: 0.14924613, w: -0.14684732}
+  m_LocalPosition: {x: -43.61017, y: 49.9461, z: 49.55406}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -315,6 +315,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4136060830436662407, guid: 3735e402c2dd20247847fb8a866f81a1,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 6.3101997
+      objectReference: {fileID: 0}
     - target: {fileID: 5886173052866056745, guid: 3735e402c2dd20247847fb8a866f81a1,
         type: 3}
       propertyPath: m_Name
@@ -343,7 +348,7 @@ PrefabInstance:
     - target: {fileID: 5886173052866056746, guid: 3735e402c2dd20247847fb8a866f81a1,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.2343407
+      value: 18.5
       objectReference: {fileID: 0}
     - target: {fileID: 5886173052866056746, guid: 3735e402c2dd20247847fb8a866f81a1,
         type: 3}
@@ -353,7 +358,7 @@ PrefabInstance:
     - target: {fileID: 5886173052866056746, guid: 3735e402c2dd20247847fb8a866f81a1,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -7.0686693
+      value: -12.5
       objectReference: {fileID: 0}
     - target: {fileID: 5886173052866056746, guid: 3735e402c2dd20247847fb8a866f81a1,
         type: 3}
@@ -522,7 +527,7 @@ ReflectionProbe:
   m_TimeSlicingMode: 0
   m_Resolution: 128
   m_UpdateFrequency: 0
-  m_BoxSize: {x: 10, y: 10, z: 10}
+  m_BoxSize: {x: 300, y: 300, z: 300}
   m_BoxOffset: {x: 0, y: 0, z: 0}
   m_NearClip: 0.3
   m_FarClip: 1000
@@ -574,7 +579,7 @@ PrefabInstance:
     - target: {fileID: 5886173052866056746, guid: 07b3d172544347f46a9eb403db131a76,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -47
+      value: -26
       objectReference: {fileID: 0}
     - target: {fileID: 5886173052866056746, guid: 07b3d172544347f46a9eb403db131a76,
         type: 3}
@@ -584,7 +589,7 @@ PrefabInstance:
     - target: {fileID: 5886173052866056746, guid: 07b3d172544347f46a9eb403db131a76,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1.5
+      value: -12.5
       objectReference: {fileID: 0}
     - target: {fileID: 5886173052866056746, guid: 07b3d172544347f46a9eb403db131a76,
         type: 3}
