@@ -17,12 +17,12 @@ public enum DoorDirection
 public class Door : MonoBehaviour
 {
     public DoorDirection Direction;
-    public int RoomToGo;
+    public int RoomIndexToGo = -1;
     private bool IsInside = false;
 
     public void SetRoomToGo(int roomToGo)
     {
-        RoomToGo = roomToGo;
+        RoomIndexToGo = roomToGo;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -51,7 +51,7 @@ public class Door : MonoBehaviour
         {
             
             var players = GameObject.FindGameObjectWithTag(k.TagPlayer);
-            RoomTeleporter.Instance.Teleport(players.GetComponent<IEntity>(), RoomToGo);
+            RoomTeleporter.Instance.Teleport(players.GetComponent<IEntity>(), RoomIndexToGo);
             IsInside = false;
         }
     }
@@ -67,7 +67,7 @@ public class Door : MonoBehaviour
             return;
         Gizmos.DrawLine(
                      transform.position,
-                    dungeon.AvailableRooms[RoomToGo].Entrance.transform.position
+                    dungeon.AvailableRooms[RoomIndexToGo].Entrance.transform.position
                     );
     }
 }

@@ -10,6 +10,10 @@ public class RoomTeleporter : Singleton<RoomTeleporter>
 {
     private DungeonCreator DungeonData;
     public Animator Fade;
+    public AudioSource ShowAudio;
+
+    private int CurrentRoomIndex = 0;
+    private int PreviousRoomIndex;
 
     private void Start()
     {
@@ -21,9 +25,9 @@ public class RoomTeleporter : Singleton<RoomTeleporter>
         StartCoroutine(COTeleport(player, roomIndex));
     }
 
-    IEnumerator COTeleport(IEntity player, int roomIndex)
+    IEnumerator COTeleport(IEntity player, int nextRoomIndex)
     {
-        Debug.Log("Teleporting to: " + roomIndex + " / " + DungeonData.AvailableRooms.Count);
+        Debug.Log("Teleporting to: " + nextRoomIndex + " / " + DungeonData.AvailableRooms.Count);
         Fade?.gameObject.SetActive(true);
         if (Fade != null)
             Fade.SetTrigger("In");
@@ -36,24 +40,38 @@ public class RoomTeleporter : Singleton<RoomTeleporter>
         List<GameObject> sceneContet = new List<GameObject>();
         try
         {
-            var nextDungeon = DungeonData.AvailableRooms[roomIndex];
-            var currentDungeon = DungeonData.AvailableRooms[nextDungeon.PreviousRoomIndex];
+
+            var nextDungeon = DungeonData.AvailableRooms[nextRoomIndex];
+            var currentDungeon = DungeonData.AvailableRooms[CurrentRoomIndex];
+
+            PreviousRoomIndex = CurrentRoomIndex;
+            CurrentRoomIndex = nextRoomIndex;
+
+            Debug.Log($"NEXT [{nextDungeon.name}]", nextDungeon);
+            Debug.Log($"CURRENT [{currentDungeon.name}]", currentDungeon);
             nextDungeon.gameObject.SetActive(true);
             currentDungeon.gameObject.SetActive(false);
 
-            int nearest = 0;
-            float nearestDistance = Vector3.Distance(player.Transform.position, nextDungeon.Doors[0].transform.position);
-            for (int i = 1; i < nextDungeon.Doors.Length; i++)
+            if (nextDungeon.Doors.Length > 0)
             {
-                float distance = Vector3.Distance(player.Transform.position, nextDungeon.Doors[i].transform.position);
-                if(distance < nearestDistance)
+                int nearest = 0;
+                float nearestDistance = Vector3.Distance(player.Transform.position, nextDungeon.Doors[0].transform.position);
+                for (int i = 1; i < nextDungeon.Doors.Length; i++)
                 {
-                    nearestDistance = distance;
-                    nearest = i;
+                    float distance = Vector3.Distance(player.Transform.position, nextDungeon.Doors[i].transform.position);
+                    if (distance < nearestDistance)
+                    {
+                        nearestDistance = distance;
+                        nearest = i;
+                    }
                 }
+                pos = nextDungeon.Doors[nearest].transform.position;
             }
-            pos = nextDungeon.Doors[nearest].transform.position;
-            pos = pos + Vector3.Normalize(player.Transform.position - pos) * 3f;
+            else
+            {
+                pos = nextDungeon.Entrance.transform.position;                     
+            }
+            //pos = pos + Vector3.Normalize(player.Transform.position - pos) * 5f;
             player.Transform.position = pos;
 
             Traverse(nextDungeon.SceneContent, sceneContet);
@@ -75,6 +93,8 @@ public class RoomTeleporter : Singleton<RoomTeleporter>
         }
         yield return new WaitForSeconds(.2f);
 
+        if(ShowAudio != null)
+            ShowAudio.Play();
         if (sceneContet != null)
         {
             for (int i = 0; i < sceneContet.Count; i++)
@@ -93,7 +113,6 @@ public class RoomTeleporter : Singleton<RoomTeleporter>
 
     void Traverse(GameObject obj, List<GameObject> list)
     {
-        Debug.Log(obj.name);
         foreach (Transform child in obj.transform)
         {
             if (!child.gameObject.activeSelf)
@@ -101,6 +120,5 @@ public class RoomTeleporter : Singleton<RoomTeleporter>
             list.Add(child.gameObject);
             Traverse(child.gameObject, list);
         }
-
     }
 }

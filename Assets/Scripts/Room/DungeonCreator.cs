@@ -16,6 +16,7 @@ public class DungeonCreator : MonoBehaviour
     }
     public List<RoomTemplate> RoomsTemplate;
     public BaseRoom StartRoom;
+    public BaseRoom LastRoom;
     public List<BaseRoom> AvailableRooms = new List<BaseRoom>();
     public Dictionary<string, BaseRoom> RoomGrid = new Dictionary<string, BaseRoom>();
     public int MaxRooms = 10;
@@ -32,16 +33,32 @@ public class DungeonCreator : MonoBehaviour
         if (RandomSeed <= 0)
             RandomSeed = DateTime.Now.Millisecond;
         RoomRandom = new System.Random(RandomSeed);
-        string grid = StartRoom.transform.position.x + "-" + StartRoom.transform.position.y + "-" + StartRoom.transform.position.z;
-        RoomGrid.Add(grid, StartRoom);
-        AvailableRooms.Add(StartRoom);
-        Debug.Log($"Room created grid[{grid}]");
+
+        AddRoom(StartRoom, 0);
+        //string grid = StartRoom.transform.position.x + "-" + StartRoom.transform.position.y + "-" + StartRoom.transform.position.z;
+        //RoomGrid.Add(grid, StartRoom);
+        //AvailableRooms.Add(StartRoom);
+        //Debug.Log($"Room created grid[{grid}]");
         RoomsToProcess.Enqueue(StartRoom);
         foreach (var item in RoomsTemplate)
         {
             item.Rooms = item.RoomsGO.Select(p => p.GetComponentInChildren<BaseRoom>()).ToArray();
         }
         yield return StartCoroutine(CreateRoom());
+    }
+
+    void AddRoom(BaseRoom room, int nextDoorIndexes)
+    {
+        if (room == null)
+            return;
+        string grid = room.transform.position.x + "-" + room.transform.position.y + "-" + room.transform.position.z;
+        foreach (var item in room.Doors)
+        {
+            item.RoomIndexToGo = nextDoorIndexes;
+        }
+        RoomGrid.Add(grid, room);
+        AvailableRooms.Add(room);
+        Debug.Log($"Room created grid[{grid}] " + room.name);
     }
     IEnumerator CreateRoom()
     {
@@ -85,6 +102,22 @@ public class DungeonCreator : MonoBehaviour
                 //yield return null;
             }
         }
+
+        // find a place to put the last scene
+        int lastRoomIndex = AvailableRooms.Count;
+        LastRoom.RoomIndex = lastRoomIndex;
+        AddRoom(LastRoom, lastRoomIndex);
+        for (int i = 1; i < lastRoomIndex; i++)
+        {
+            for (int j = 0; j < AvailableRooms[i].Doors.Length; j++)
+            {
+                if(AvailableRooms[i].Doors[j].RoomIndexToGo == -1)
+                {
+                    AvailableRooms[i].Doors[j].RoomIndexToGo = lastRoomIndex;
+                }
+            }
+        }
+
         for (int i = 1; i < AvailableRooms.Count; i++)
         {
             AvailableRooms[i].gameObject.SetActive(false);
