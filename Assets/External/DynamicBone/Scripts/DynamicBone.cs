@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 
-[AddComponentMenu("Dynamic Bone/Dynamic Bone")]
+//[AddComponentMenu("Dynamic Bone/Dynamic Bone")]
 public class DynamicBone : MonoBehaviour
 {
 #if UNITY_5_3_OR_NEWER
