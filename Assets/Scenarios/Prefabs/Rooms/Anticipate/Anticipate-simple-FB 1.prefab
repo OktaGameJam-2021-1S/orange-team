@@ -1507,7 +1507,7 @@ PrefabInstance:
     - target: {fileID: 4955151177565751959, guid: 7f1efcbc728165046a4aeaa54a3738c1,
         type: 3}
       propertyPath: m_Name
-      value: Anticipate-simple-FB
+      value: Anticipate-simple-FB 1
       objectReference: {fileID: 0}
     - target: {fileID: 5191829155337107979, guid: 7f1efcbc728165046a4aeaa54a3738c1,
         type: 3}
@@ -6735,6 +6735,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: BombDuckFallingSpawner (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 3536662793002074767, guid: 149b11bdc95c18148ada941d6d118c04,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 149b11bdc95c18148ada941d6d118c04, type: 3}
 --- !u!1001 &5094939373203991539
@@ -7781,6 +7786,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: BombDuckFallingSpawner
+      objectReference: {fileID: 0}
+    - target: {fileID: 3536662793002074767, guid: 149b11bdc95c18148ada941d6d118c04,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 149b11bdc95c18148ada941d6d118c04, type: 3}

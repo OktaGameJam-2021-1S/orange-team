@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class TriggerActivator : MonoBehaviour
 {
     public GameObject[] Activators;
+    public int SceneIndex = 0;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -18,6 +19,6 @@ public class TriggerActivator : MonoBehaviour
 
     public void LoadScene()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(SceneIndex);
     }
 }

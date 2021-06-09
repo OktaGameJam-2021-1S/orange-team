@@ -7,6 +7,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1127559281786439738, guid: 7f1efcbc728165046a4aeaa54a3738c1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3467235838349456579, guid: 7f1efcbc728165046a4aeaa54a3738c1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4254127561228030456, guid: 7f1efcbc728165046a4aeaa54a3738c1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4955151177565751958, guid: 7f1efcbc728165046a4aeaa54a3738c1,
         type: 3}
       propertyPath: m_RootOrder
@@ -65,7 +80,7 @@ PrefabInstance:
     - target: {fileID: 4955151177565751959, guid: 7f1efcbc728165046a4aeaa54a3738c1,
         type: 3}
       propertyPath: m_Name
-      value: RoomStructure
+      value: RoomStructure Sample
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7f1efcbc728165046a4aeaa54a3738c1, type: 3}

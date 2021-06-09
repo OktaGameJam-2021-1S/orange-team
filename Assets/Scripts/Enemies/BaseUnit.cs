@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 
 public class BaseUnit : MonoBehaviour, IEntity
 {
@@ -47,9 +47,13 @@ public class BaseUnit : MonoBehaviour, IEntity
     public void TakeDamage(IEntity owner, int damage)
     {
         SetHealth(EntityData.CurrentLife - damage);
-        if(Data.CurrentLife <= 0)
+        if (Data.CurrentLife <= 0)
         {
             SimpleObjectPooling.Instance.Destroy(gameObject);
+            if (gameObject.tag == k.TagPlayer)
+            {
+                SceneManager.LoadScene(0);
+            }
         }
     }
 }

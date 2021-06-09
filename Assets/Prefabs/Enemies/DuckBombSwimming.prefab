@@ -18,9 +18,10 @@ GameObject:
   - component: {fileID: 5095874215281445616}
   - component: {fileID: 5205881215957147946}
   - component: {fileID: -4523909268080133734}
+  - component: {fileID: 522723432736535314}
   m_Layer: 0
   m_Name: DuckBombSwimming
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -278,6 +279,106 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Audio: {fileID: 5205881215957147946}
+--- !u!114 &522723432736535314
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5467873555446635359}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fe91dc294731a9428c0941ea7579110, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  drawingMode: 1
+  outlineLayer: 0
+  outlineTargets:
+  - edgeDilateAmount: 5
+    frontEdgeDilateAmount: 5
+    backEdgeDilateAmount: 5
+    Renderer: {fileID: 5467873555446635353}
+    SubmeshIndex: 0
+    ForceRecalculateBounds: 0
+    CutoutDescriptionType: 0
+    CutoutThreshold: 0.5
+    CullMode: 2
+    cutoutTextureName: 
+    DilateRenderingMode: 0
+    cutoutTextureIndex: 0
+  - edgeDilateAmount: 5
+    frontEdgeDilateAmount: 5
+    backEdgeDilateAmount: 5
+    Renderer: {fileID: 14396983676718040}
+    SubmeshIndex: 0
+    ForceRecalculateBounds: 0
+    CutoutDescriptionType: 0
+    CutoutThreshold: 0.5
+    CullMode: 2
+    cutoutTextureName: 
+    DilateRenderingMode: 0
+    cutoutTextureIndex: 0
+  - edgeDilateAmount: 5
+    frontEdgeDilateAmount: 5
+    backEdgeDilateAmount: 5
+    Renderer: {fileID: 6033481704336190140}
+    SubmeshIndex: 0
+    ForceRecalculateBounds: 0
+    CutoutDescriptionType: 0
+    CutoutThreshold: 0.5
+    CullMode: 2
+    cutoutTextureName: 
+    DilateRenderingMode: 0
+    cutoutTextureIndex: 0
+  - edgeDilateAmount: 5
+    frontEdgeDilateAmount: 5
+    backEdgeDilateAmount: 5
+    Renderer: {fileID: 1527732024602241846}
+    SubmeshIndex: 0
+    ForceRecalculateBounds: 0
+    CutoutDescriptionType: 0
+    CutoutThreshold: 0.5
+    CullMode: 2
+    cutoutTextureName: 
+    DilateRenderingMode: 0
+    cutoutTextureIndex: 0
+  - edgeDilateAmount: 5
+    frontEdgeDilateAmount: 5
+    backEdgeDilateAmount: 5
+    Renderer: {fileID: 256901818919442872}
+    SubmeshIndex: 0
+    ForceRecalculateBounds: 0
+    CutoutDescriptionType: 0
+    CutoutThreshold: 0.5
+    CullMode: 2
+    cutoutTextureName: 
+    DilateRenderingMode: 0
+    cutoutTextureIndex: 0
+  renderStyle: 1
+  outlineParameters:
+    enabled: 1
+    color: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+    dilateShift: 1
+    blurShift: 1
+    fillPass:
+      shader: {fileID: 0}
+      serializedProperties: []
+  backParameters:
+    enabled: 1
+    color: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+    dilateShift: 1
+    blurShift: 1
+    fillPass:
+      shader: {fileID: 0}
+      serializedProperties: []
+  frontParameters:
+    enabled: 1
+    color: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+    dilateShift: 1
+    blurShift: 1
+    fillPass:
+      shader: {fileID: 0}
+      serializedProperties: []
 --- !u!1001 &7433203535375553236
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -350,6 +451,30 @@ PrefabInstance:
 --- !u!4 &3689630554002679256 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6060781094230112012, guid: ec1cddd8f466b944da98a92002f74995,
+    type: 3}
+  m_PrefabInstance: {fileID: 7433203535375553236}
+  m_PrefabAsset: {fileID: 0}
+--- !u!137 &14396983676718040 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 7429583418702141708, guid: ec1cddd8f466b944da98a92002f74995,
+    type: 3}
+  m_PrefabInstance: {fileID: 7433203535375553236}
+  m_PrefabAsset: {fileID: 0}
+--- !u!137 &6033481704336190140 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 3788425172029683816, guid: ec1cddd8f466b944da98a92002f74995,
+    type: 3}
+  m_PrefabInstance: {fileID: 7433203535375553236}
+  m_PrefabAsset: {fileID: 0}
+--- !u!137 &1527732024602241846 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 8222327263423330786, guid: ec1cddd8f466b944da98a92002f74995,
+    type: 3}
+  m_PrefabInstance: {fileID: 7433203535375553236}
+  m_PrefabAsset: {fileID: 0}
+--- !u!137 &256901818919442872 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 7257755224245570412, guid: ec1cddd8f466b944da98a92002f74995,
     type: 3}
   m_PrefabInstance: {fileID: 7433203535375553236}
   m_PrefabAsset: {fileID: 0}
